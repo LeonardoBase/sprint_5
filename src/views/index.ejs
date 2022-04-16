@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+                    <!-- head    -->
+                    <%- include('./partials/head.ejs') %>
+                    <!-- head    -->
+    <body>
+                    <!-- header -->
+                    <%- include('./partials/header.ejs') %>
+                    <!-- header -->
+        <main>
+                       
+                    <!-- banner-feed -->
+                    <%- include('./partials/banner-feed.ejs') %>
+                    <!-- banner-feed -->
+
+                   <!-- site-shopping-info -->
+                   <%- include('./partials/site-shopping-info.ejs') %>
+                   <!-- site-shopping-info -->      
+           
+                
+                 <%for (let p of productos) { %>
+            <section class= "last-visit">
+                <div class="products">
+                    <article>   
+                        <a href="productslists/details/<%=p.id %>"><img src="/images/products/<%=p.image %>" alt="cadena"></a>
+                        <div class="main-article">
+                            <i class="far fa-heart"></i>
+                            <p class= "price"><%-p.price %>$</p>
+                            <h4 class="description"><%-p.name%></h4>
+                        </div>
+                    </article>
+                
+                </div>
+                 </section>
+                 <%   }%>
+                                
+        </main>
+        <%- include('partials/footer.ejs') %>
+        
+    </body>
+</html>

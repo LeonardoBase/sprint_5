@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+                    
+                     <!-- head    -->
+                     <%- include('../partials/head.ejs') %>
+                     <!-- head    -->
+     <body>
+                    <!-- header -->
+                    <%- include('../partials/header.ejs') %>
+                    <!-- header -->
+                 <div class="h4-ol-prod-left-section h4-ol-no-btn customer-orders customer-profile"
+                    style="background:#068675; border:0px; text-align: center;">
+                    <h1>Hi <%= user.nombre %> </h1>
+            
+           <div class="h4-ol-status-desc">
+               <div class="col-state h4-ol-status-title">
+                   <div class="customer-pic"><img class="ol-h4-img" alt="honor67"
+                                                  src="/images/users/<%= user.image %> " style="  max-width: 15%;
+                                                  max-height: 15%; border-radius: 50%;"></div>
+               </div>
+               <label for="email">
+                   <%= user.email  %> 
+               </label>
+               </div>
+            <div><a href="/users/logout">Cerrar sesión</a></div>
+
+           </div>
+           
+       </div>
+
+
+ <!-- footer -->
+ <%- include('../partials/footer') %>
+ <!-- /footer -->
+ </body>
+</html>

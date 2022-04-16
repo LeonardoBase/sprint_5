@@ -1,0 +1,84 @@
+[
+ {
+  "id": 1,
+  "name": "Pulsera rolon",
+  "description": "pulsera de plata de 20 cm de largo",
+  "price": "6200",
+  "image": "pulserarolon.jpg",
+  "category": "Pulseras",
+  "discount": ""
+ },
+ {
+  "id": 2,
+  "name": "Aros con swarosvky",
+  "description": "Aros de plata con corazon de swarovsky blanco",
+  "price": "2600",
+  "image": "art2.jpg",
+  "category": "Aros",
+  "discount": ""
+ },
+ {
+  "id": 3,
+  "name": "Aros argolla",
+  "description": "Argollas de plata electroformatura de 6mm",
+  "price": 3200,
+  "image": "art3.jpg",
+  "category": "aros"
+ },
+ {
+  "id": 4,
+  "name": "Aros perla",
+  "description": "Aro pasante con perla cultivada",
+  "price": 1400,
+  "image": "art4.jpg",
+  "category": "aros"
+ },
+ {
+  "id": 5,
+  "name": "Cadena Rolon con dije",
+  "description": "Cadena de plata de tipo rolon de 50cm, con dije de plata y onix en el centro",
+  "price": 6200,
+  "image": "art5.jpg",
+  "category": "cadenitas"
+ },
+ {
+  "id": 6,
+  "name": "Dije rojo",
+  "description": "Dije de plata con swarovsky rojo en el centro",
+  "price": 1600,
+  "image": "dije.jpg",
+  "category": "cadenitas"
+ },
+ {
+  "id": 7,
+  "name": "Anillo con nacar",
+  "description": "Anillo de 19mm adptable con piedra de nacar",
+  "price": 3300,
+  "image": "anillo4.jpg",
+  "category": "anillos"
+ },
+ {
+  "id": 8,
+  "name": "Anillo con piedra",
+  "description": "Anillo de 19mm con piedra blanca",
+  "price": 4300,
+  "image": "anillo2.jpg",
+  "category": "anillos"
+ },
+ {
+  "id": 9,
+  "name": "Anillo cubic",
+  "description": "Anillo de 19mm cubic",
+  "price": 3200,
+  "image": "anillocubic.jpg",
+  "category": "anillos"
+ },
+ {
+  "id": 10,
+  "name": "Anillo Swarovsky",
+  "description": "Anillo de 19mm swarovsky",
+  "price": 3200,
+  "image": "anilloswarovski.jpg",
+  "category": "anillos"
+ }
+]

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('../partials/head') %>
+<body>
+    <!-- Header -->
+    <%- include('../partials/header') %>
+    <!-- /Header -->
+
+    <main class = "main-list">
+    <div class="">
+        <h2 class="products-title" style="
+        text-align: center">Todos los productos</h2>
+    </div>
+    <div class="container">
+        <%for (let p of productos) { %>
+        <section class="container-products">
+        <div class="product">
+            <a href="/productslists/details/<%=p.id %>">
+                          
+                
+                    <img src="/images/products/<%=p.image %>" alt="imagen de producto" class="productimg">
+                
+            </a>
+            <article>
+                <span><%-p.name%></span>
+                <h2> <%-p.price %> </h2>
+            </article>
+        </div>
+            
+
+        
+        </section>
+     </div>
+        <% } %>
+    </main>
+
+    <!-- footer -->
+    <%- include('../partials/footer') %>
+    <!-- /footer -->
+</body>
+</html>
