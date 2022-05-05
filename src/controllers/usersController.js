@@ -9,6 +9,7 @@ const usersJSON = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 
+
 let userController = {
 
   
@@ -49,9 +50,11 @@ let userController = {
             }
              let userCreated= userModel.create (userToCreate)
              return res.redirect ('/users/login')
+            
             }
                        
         } else {
+
             
                res.render ('register',{errors:errors.array(),
                 old: req.body

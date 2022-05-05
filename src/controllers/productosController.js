@@ -4,7 +4,7 @@ const { validationResult } = require('express-validator');
 
 
 
-
+const db = require('../database/models')
 const productsFilePath = path.join(__dirname, '../database/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -12,8 +12,23 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const productosController = {
 
      productslists:(req, res) =>  {
-          const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-          res.render ('productslists',{productos:products})
+
+          db.products.findAll({
+
+               include: [
+                    {association:'categories' },
+               
+                    
+               ]
+          })
+          .then((products) =>{
+     
+               res.render ('productslists',{productos: products})
+     
+          })
+
+         
+         
  
      },
     cart: (req, res) =>  {
@@ -25,31 +40,23 @@ const productosController = {
 
     },
     details:(req, res) =>  {
-         let idProductsel = req.params.id
-        
-         for (let p of products) {
 
-          if (p.id==idProductsel){
-               productFound=p
-               break
-          }
-         }
-         res.render ('details',{producto: productFound})
+     db.products.findByPk(req.params.id)
+     .then((productFound) =>{
+
+          res.render ('details',{producto: productFound})
+          })
+         
 
     },
     editproduct:(req, res) =>  {
 
-    
-     let idProductsel = req.params.id
-        
-     for (let p of products) {
+     db.products.findByPk(req.params.id)
+     .then((productFound) =>{
 
-      if (p.id==idProductsel){
-           productFound=p
-           break
-      }
-     }
-     res.render ('editproduct',{producto: productFound})
+          res.render ('editproduct',{producto: productFound})
+
+     })
      },
      
 
@@ -58,38 +65,22 @@ const productosController = {
      let errors= validationResult(req);
 
      if (errors.isEmpty()) {
+          db.products.update ({
+               name: req.body.name,
+               detail:req.body.detail,
+               price:req.body.price,
+               category:req.body.category,
+          }, {
+               where: {
+                    id:req.params.id
+               }
 
-          idNuevo=0;
+          })
+          // .then((products) =>{} )
 
-		for (let s of products){
-			if (idNuevo<s.id){
-				idNuevo=s.id;
-			}
-
-          }
-
-          idNuevo++;
-
-     let productoEditado=req.body;
-
-     let idBuscado = req.params.id;
-
-     let producto = products;
-
-     for (let p of producto){
-          if (p.id==idBuscado){
-               p.name=productoEditado.name;
-               p.price=productoEditado.price;
-               p.discount=productoEditado.discount;
-               p.category=productoEditado.category;
-               p.description=productoEditado.description;
-               break;
-          }
-     }
-
-     fs.writeFileSync(productsFilePath, JSON.stringify(producto,null,' '));
-    
-     res.redirect("/");
+         
+               res.redirect("/");
+         
      }
      else {
      res.render ('editproduct',{errors: errors.array()})
@@ -99,54 +90,40 @@ const productosController = {
     },
 
     erase:(req, res) =>  {
-     let idProductoSeleccionado = req.params.id;
-		let productoEncontrado=null;
+     let imagedb= db.products.image
+         
+        
+     db.products.destroy({
+          where: {
+               id: req.params.id,
+               
+          }
 
-		for (let p of products){
-			if (p.id==idProductoSeleccionado){
-				productoEncontrado=p;
-				break;
-			}
-		}
+     })
+     // if(imagedb==null) {
 
-		let productos2 = products.filter(function(e){
-			return e.id!=productoEncontrado.id;
-		})
-
-          fs.unlinkSync(path.join(__dirname, '../../public/images/products/', productoEncontrado.image));
-		fs.writeFileSync(productsFilePath, JSON.stringify(productos2,null,' '));
-
-		res.redirect("/");
-     },
+     //      fs.unlinkSync(path.join(__dirname, '../../public/images/products/', imagedb));
+     // }
+    
+     
+          res.redirect("/");
+},
 
 
     store: (req, res) => {
 			
-     let productos = products;
-                                   
-		let idNuevo = productos[productos.length-1].id + 1;
-          
-      let nombreImagen= req.file.filename;
+    db.products.create({
+     id: req.body.id,
+       category: req.body.category,
+       price: req.body.price,
+       detail: req.body.detail,
+       name: req.body.name,
+       image: req.file.name
 
-     let nuevoProducto = {
-          id: idNuevo,
-          name: req.body.name,
-          price: req.body.price,
-          discount: req.body.discount,
-          category: req.body.category,
-          description: req.body.description,
-          image: nombreImagen
-     };
+    })
+    res.redirect ('/')
 
-     productos.push(nuevoProducto);
-
-
-     fs.writeFileSync(productsFilePath, JSON.stringify(productos,null,' '));
-
-     res.redirect('/');
-
-     }
-
+}
 }
 
 module.exports = productosController;

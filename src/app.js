@@ -7,7 +7,6 @@ const userLoggedMiddleware= require ('./middlewares/userLoggedMiddleware')
 const cookies= require ('cookie-parser')
 
 
-
 app.use(express.json());
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }));
@@ -41,7 +40,10 @@ app.set('view engine', 'ejs');
 
  app.use(express.static(path.join(__dirname, '../public')))
 
+app.use ((req,res,next)=> {
 
+    res.status (404).render('404-page')
+})
 
  app.listen(process.env.PORT || 3000, function() {
      console.log("Server running");
