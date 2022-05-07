@@ -15,6 +15,15 @@ function productsData(sequelize, Datatypes){
     const productos = sequelize.define(a,b,config)
 
     productos.associate= function (models) {
+
+     productos.belongsToMany(models.material_products, {
+          as:'materials',
+          through: 'categories_products',
+          foreignKey: 'products_id',
+          otherKey: 'material_id',
+          timestamps: false,
+     })
+
          productos.belongsToMany(models.categories, {
               as:'categories',
               through: 'categories_products',
@@ -23,6 +32,7 @@ function productsData(sequelize, Datatypes){
               timestamps: false,
          })
 
+       
     }
     
     return productos;

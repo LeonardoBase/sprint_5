@@ -3,16 +3,22 @@ const path = require('path');
 
 
 const db = require('../database/models')
-const productsFilePath = path.join(__dirname, '../database/productsDataBase.json');
+
 
 
 const controller = {
 
     index: (req, res) =>  {
         
-          const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+         db.products.findAll({
 
-         res.render ('index', {productos:products})
+            limit: 12
+         })
+         .then ((resultado) => {
+            res.render ('index', {productos:resultado})
+         })
+
+         
 
     },
     search: (req,res) => {

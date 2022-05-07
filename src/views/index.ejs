@@ -18,21 +18,33 @@
                    <!-- site-shopping-info -->      
            
                 
-                 <%for (let p of productos) { %>
+                   
             <section class= "last-visit">
-                <div class="products">
-                    <article>   
-                        <a href="productslists/details/<%=p.id %>"><img src="/images/products/<%=p.image %>" alt="cadena"></a>
-                        <div class="main-article">
-                            <i class="far fa-heart"></i>
-                            <p class= "price"><%-p.price %>$</p>
-                            <h4 class="description"><%-p.name%></h4>
-                        </div>
-                    </article>
                 
-                </div>
+                <div class="container">
+                    
+                   <div class="row row-cols-4">
+                    <%for (let p of productos) { %>
+                            <div class="col">
+                                <article>   
+                                    <a href="productslists/details/<%=p.id %>"><img src="/images/products/<%=p.image %>" alt="cadena"></a>
+                                    <div class="main-article">
+                                        <i class="far fa-heart"></i>
+                                        <p class= "price"><%-p.price %>$</p>
+                                        <h4 class="description"><%-p.name%></h4>
+            
+                                        
+                                    </div>
+                                </article>
+                            </div>
+                            <%   }%> 
+                   </div>
+                   
+                </div>        
+                 
+                
                  </section>
-                 <%   }%>
+                 
                                 
         </main>
         <%- include('partials/footer.ejs') %>

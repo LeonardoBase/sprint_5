@@ -1,4 +1,24 @@
 [
- 
- 
+ {
+  "id": 1,
+  "user": " maldonadoc.12",
+  "nombre": " Leo",
+  "password": "$2b$10$9qUzDc0fNgJNwRaPa5SgceiK6YEx.YgBtswWl2olR6p0upFw/gu7.",
+  "confirmPassword": "$2b$10$f0.6ulJlC9qC//qan4qFuOjRwB15CPYmAG9tNyXXk9ZGoK6ugh/gu",
+  "email": "leonarmalf@gmail.com",
+  "address": "Av 32#49a-135",
+  "terminos": "on",
+  "image": "7457547547665735444_160076515201459_8827602929516019712_o.jpg"
+ },
+ {
+  "id": 2,
+  "user": "cande",
+  "nombre": " Candela",
+  "password": "$2b$10$.OHI6mIHTA5f9nFoP1xd/.v1aO/BluDTBg6MiU2xvxSMTjp2XpvSK",
+  "confirmPassword": "$2b$10$co1VhyliRzo18W3gnsxDEe3lGM1MMc60DszQtpiNxuHtfQk7u5Jte",
+  "email": "candeenunez@gmail.com",
+  "address": "9630 SW 152 av",
+  "terminos": "on",
+  "image": "74575475444783414_10217746756364781_4395099085502152704_n.jpg"
+ }
 ]

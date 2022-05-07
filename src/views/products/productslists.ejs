@@ -12,35 +12,45 @@
         <h2 class="products-title" style="
         text-align: center">Todos los productos</h2>
     </div>
-    <div class="container">
+        <div class="container">
+            <div class="row row-cols-4">
         <%for (let p of productos) { %>
-        <section class="container-products">
+        <section>
         <div class="product">
+            <div class="col">
             <a href="/productslists/details/<%=p.id %>">
                           
                 
-                    <img src="/images/products/<%=p.image %>" alt="imagen de producto" class="productimg">
+                    <img src="/images/products/<%=p.image%>" alt="imagen de producto" class="productimg">
                 
             </a>
-            <article>
-                
-                <span><%-p.name%></span>
-                <h2> $<%-p.price %> </h2>
-               
-                
-              
-               
-                
-            </article>
-        </div>
             
+               <div><%=p.name%></div>
+                <h2> $<%=p.price %> </h2>   
+                <% for( let i = 0; i < p.categories.length; i++ ) { %>
+                   <li>
+                       Categoría: <%= p.categories[i].name %> 
+                        
+                   </li>
+                
+                   <% } %>
+
+                   <% for( let i= 0; i < p.materials.length; i++ ) { %>
+                   
+                    <div>
+                        <%= p.materials[i].name%> 
+                       </div>
+
+                   <% } %>
+                   
+                </div>    
+         </div>         
+        </section>        
+         
         
-        
-        </section>
-     </div>
-        <% } %>
-        <span><%=productos.categories%></span>
-       
+        <% } %>  
+    </div>
+    </div>
     </main>
 
     <!-- footer -->

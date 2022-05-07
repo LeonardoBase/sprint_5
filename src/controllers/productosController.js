@@ -17,11 +17,13 @@ const productosController = {
 
                include: [
                     {association:'categories' },
-               
+                    {association:'materials' }     
                     
                ]
           })
           .then((products) =>{
+
+              
      
                res.render ('productslists',{productos: products})
      
@@ -36,25 +38,43 @@ const productosController = {
 
     },
     createproduct:(req, res) =>  {
-         res.render ('createproduct')
+         db.categories.findAll()
+         .then((resultado) => {
+
+          res.render ('createproduct',{categories: resultado})
+         })
+        
 
     },
     details:(req, res) =>  {
-
-     db.products.findByPk(req.params.id)
+    
+   
+     db.products.findByPk(req.params.id, {
+          include: [
+               { 
+                    association: "categories"
+                }
+                ]
+     })
      .then((productFound) =>{
 
           res.render ('details',{producto: productFound})
           })
+
+
          
 
     },
     editproduct:(req, res) =>  {
 
-     db.products.findByPk(req.params.id)
-     .then((productFound) =>{
+          let productsRequest= db.products.findByPk(req.params.id)
+          let categoriesRequest= db.categories.findAll()
+          
+          Promise.all([productsRequest,categoriesRequest])
+          .then(([producto, categoria]) => {
 
-          res.render ('editproduct',{producto: productFound})
+               
+          res.render ('editproduct',{producto: producto, categories:categoria})
 
      })
      },
@@ -65,21 +85,23 @@ const productosController = {
      let errors= validationResult(req);
 
      if (errors.isEmpty()) {
+
           db.products.update ({
                name: req.body.name,
                detail:req.body.detail,
                price:req.body.price,
-               category:req.body.category,
+               stock: req.body.stock
+               
           }, {
                where: {
                     id:req.params.id
                }
 
-          })
-          // .then((products) =>{} )
-
+          }) 
+          
+       
          
-               res.redirect("/");
+               res.redirect("/productslists"+ '/details/'+req.params.id);
          
      }
      else {
@@ -113,13 +135,17 @@ const productosController = {
     store: (req, res) => {
 			
     db.products.create({
-     id: req.body.id,
-       category: req.body.category,
+         
+        id: req.body.id,
+       category: {name:req.body.category},
        price: req.body.price,
        detail: req.body.detail,
        name: req.body.name,
-       image: req.file.name
+       stock: req.body.stock,
+       image: req.file.filename
 
+    }, {
+         include:['categories']
     })
     res.redirect ('/')
 
