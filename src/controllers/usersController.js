@@ -3,35 +3,31 @@ const fs= require('fs')
 const bcrypt= require('bcrypt')
 const path= require('path')
 
-const userModel= require('../models/Usermodel')
-const productsFilePath = path.join(__dirname, '../database/usersDataBase.json');
-const usersJSON = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+const db = require('../database/models')
 
 
    
 let userController = {
 
   
-    login: (req, res) =>  {
-
-        res.render ('login')
-    
-    },
-    profile: (req, res) =>  {
+   
+    register: (req, res) =>  {
         
-    
-        res.render ('profile', {user: req.session.userLogged})
-    
+        res.render ('register')
     },
     // Proceso de registro
     store: (req, res) => { 
 		let errors= validationResult(req)
-        
+       
         if (errors.isEmpty()){
 
-            let userinDB= userModel.findByField('email',req.body.email)
-            if (userinDB) {
+          db.users.findOne({
+                where: {email:req.body.email}
+            })   
+            .then ((emailuser) =>  {
+                   
+            if (emailuser!=null) {
                 return res.render ('register', {errors:[
                     {
                         msg:"Este email ya está registrado"
@@ -40,19 +36,23 @@ let userController = {
                 })
                     
             } else {
-
-            let userToCreate= {
-                ...req.body,
+                
+            db.users.create ({
+               
+                username: req.body.user,
+                name: req.body.nombre,
                 password: bcrypt.hashSync(req.body.password, 10),
-                confirmPassword: bcrypt.hashSync(req.body.password, 10),
-                image: req.file.filename
-
-            }
-             let userCreated= userModel.create (userToCreate)
+                address: req.body.address,
+                email:req.body.email,
+                image: req.file.filename,
+                
+           }) 
+               
+    
              return res.redirect ('/users/login')
             
             }
-                       
+        })            
         } else {
 
             
@@ -63,20 +63,24 @@ let userController = {
         }   
 
 	 },
+     login: (req, res) =>  {
 
-    register: (req, res) =>  {
-        
-        res.render ('register')
+        res.render ('login')
+    
     },
+   
     processLogin: (req, res) => {
         let errors = validationResult (req);
        
 
         if (errors.isEmpty()) {
           
-            let usertoLogin= userModel.findByField('email', req.body.email)
+            db.users.findOne({
+                where: {email:req.body.email}
+            })   
+            .then ((usertoLogin) =>  {   
             
-            if (usertoLogin) {
+            if (usertoLogin!=null) {
                 let passwordCryped= bcrypt.compareSync(req.body.password, usertoLogin.password)
                 if (passwordCryped) {
                         delete usertoLogin.password
@@ -88,15 +92,15 @@ let userController = {
                         res.cookie('userEmail', req.body.email, {maxAge: (1000*60)*2})
                     }                        
                         return res.redirect ('/users/profile')
-                }
-
+                 }
+                
                 return res.render ('login', {errors:[
                     {
                         msg:"Las credenciales son inválidas"
                     }],
                     old: req.body
                 })
-    
+                
     
              }
            
@@ -108,18 +112,24 @@ let userController = {
                 old: req.body
             })
 
-
+        }) 
          }  else {
              return res.render ('login', {errors: errors.errors })
             
          }     
     },
-
+    profile: (req, res) =>  {
+        
+    
+        res.render ('profile', {user: req.session.userLogged})
+    
+    },
 
     logout: (req,res) => {
         res.clearCookie ('userEmail')
         req.session.destroy()
         return res.redirect('/')
+        
     }
     }
 

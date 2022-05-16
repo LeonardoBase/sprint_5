@@ -10,7 +10,7 @@
 	<h2 class="products-title">Editando Producto </h2> 
 	<div class="container products-wrapper">
 		<div class="row">
-			
+
 		</div>
 		<div class="col-12">
 			<form action="/productslists/<%=producto.id%>?_method=PUT" method="POST">
@@ -18,12 +18,7 @@
 					<div class="col-12 col-md-6">
 						<label for="name" class="form-label">Nombre del producto:</label>
 						<input type="text" id="name" name="name"value="<%=producto.name%>" class="form-input">
-						 <% if (locals && locals.errors) { %>
-							<% if (locals.errors[0].param=="name") { %>
-								<h3> <%= locals.errors[0].msg %>  </h3> 
-							<% } %>
-						<% } %> 
-						
+					
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="price" class="form-label">Precio del producto:</label>
@@ -36,22 +31,42 @@
 					<div class="col-12 col-md-6">
 						<br><label for="category" class="form-label">Categoría:</label>
 						<select name="category" id="category" class="form-input">						
-							<option value="">Elegir</option>
-							<% for( let i = 0; i < categories.length; i++ ) { %>
-								<option value="<%=categories[i].name %> "><%=categories[i].name%></option>
-							
-							<% } %>
-                                
-                                     
-                                
-                         
-							
-							
+							<option value="">Selecciona</option>
+						
+							<% for( let c of categories ) { %>
+						<option value="<%=c.id%>"><%=c.name%></option> 
+							<% } %>			
+								
+					
+                        </select>        
+        			</div>
+					<div class="col-12 col-md-6">
+						<br><label for="materials" class="form-label">Material:</label>
+						<select name="materials" id="materials" class="form-input">
+							<option value="">Selecciona</option>	
+							<% for (let m of materials)  { %> 
+								
+								<option value="<%=m.id%>"><%=m.name%></option>
+								<% } %> 
+
+						
+						</select>
+						<p class="formulario_error5 formulario_error"><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena este campo. </p>
 					</div>
+
+					
 					<div class="col-12">
 						<br><label for="description"  class="form-label">Descipción:</label>
 						<textarea name="description" id="description"  class="form-input"><%=producto.detail%></textarea>
 					</div>
+					<div class="col-12 col-md-6">
+						<img src="/images/products/<%-producto.image%>" alt="imagen de producto" width="50%" height="50%">
+						<label for="imageProduct"class="form-label">Actualizar Imágen</label>
+						<!-- <input type="file" name="imageProduct" class="inputimage" id="inputimage"> -->
+						<p class="formulario_error6 formulario_error"><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Tienes que subir una imágen </p>
+					</div>
+					
+			
 					<div class="col-12">
 						<button type="submit" class="buy-now-button">Guardar producto</button>
 					</div>

@@ -1,5 +1,5 @@
 function materialData(sequelize, Datatypes){
-    let a= 'material_products';
+    let a= 'materials';
     let b= {
       id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
       name: {type: Datatypes.STRING(50)}

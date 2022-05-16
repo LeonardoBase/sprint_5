@@ -11,6 +11,7 @@ let validaciones = [
 ]
 
 //***  Routes ****/
+router.get ('/test', productosController.test);
 
 router.get ('/cart', productosController.cart);
 

@@ -15,8 +15,10 @@ resave:false,
 saveUninitialized: false,
 }))
 
+
 app.use (cookies())
 app.use (userLoggedMiddleware);
+
 
 // Routes//
 

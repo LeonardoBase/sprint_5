@@ -20,5 +20,49 @@
   "address": "9630 SW 152 av",
   "terminos": "on",
   "image": "74575475444783414_10217746756364781_4395099085502152704_n.jpg"
+ },
+ {
+  "id": 3,
+  "user": "superve",
+  "nombre": "Leonardo Maldonado",
+  "password": "$2b$10$rikOsUEn.5mtnsx.mXnyAOQGB3WTjyyWfHwDcw1vdoDYHlOFvrYHa",
+  "confirmPassword": "$2b$10$YTxP9Qh9lP2.aLLJgQSFruGftv0zu7.3Oc1noFGpuZ6s69p.Nr1sa",
+  "email": "leonarmalf@gmail.com",
+  "address": "Av 32#49a-135",
+  "terminos": "on",
+  "image": "74575475437800809_1855827307836611_2105886773774123008_n.jpg"
+ },
+ {
+  "id": 4,
+  "user": " maldonadoc.12",
+  "nombre": " Leonardo",
+  "password": "$2b$10$WYX8p1LhwOBxJV8wBcbMN.ILifoyk0cXd0AXPxIqhjWxespwbazwi",
+  "confirmPassword": "$2b$10$.kMJftNLNvqjzg06ZFcquO/Eyffv2JkPsrlWLiJKaDIFjiOb8Ov0i",
+  "email": "leonarmalf@gmail.com",
+  "address": "Av 32#49a-135",
+  "terminos": "on",
+  "image": "74575475417352498_1841579379435380_7956421147833153886_n.jpg"
+ },
+ {
+  "id": 5,
+  "user": " maldonadoc.12",
+  "nombre": " Leonardo",
+  "password": "$2b$10$xw9MCCU2h3IlZZvIA3dFXuKWo1RimICDYuuZML/6vUGxDIvaDVsvy",
+  "confirmPassword": "$2b$10$IuWe3VXi3hygH5.uNesnDuJUtoR5fphyX6g.2yvfsUjcNUn.Y6id.",
+  "email": "leonarmalf@gmail.com",
+  "address": "",
+  "terminos": "on",
+  "image": "74575475435363343_1415695341863956_9139936623478177792_n.png"
+ },
+ {
+  "id": 6,
+  "user": " maldonadoc.12",
+  "nombre": " Leonardo",
+  "password": "$2b$10$goCR1dqgAO5VxBxKlhNpteZs0kriVTYkXyNFB.eRfmbMvaoGs1Yym",
+  "confirmPassword": "$2b$10$vLvO6IhGqyqaOLQ6iWe7R.Oa3LlWFzVnTqzHiIwpauk66eNK146mq",
+  "email": "leonarmalf@gmail.com",
+  "address": "Av 32#49a-135",
+  "terminos": "on",
+  "image": "74575475435363343_1415695341863956_9139936623478177792_n.png"
  }
 ]

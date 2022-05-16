@@ -23,7 +23,7 @@ const controller = {
     },
     search: (req,res) => {
         
-        res.send (req.query.busquedad)
+        res.send ('id: ' + req.query.search)
     }
 }
 

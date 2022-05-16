@@ -1,16 +1,17 @@
 const fs = require('fs');
 const path = require('path');
-const { validationResult } = require('express-validator');
 
 
 
 const db = require('../database/models')
-const productsFilePath = path.join(__dirname, '../database/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 const productosController = {
 
+     test: (req,res) => {
+
+          res.render('test')
+     },
      productslists:(req, res) =>  {
 
           db.products.findAll({
@@ -37,15 +38,7 @@ const productosController = {
          res.render ('cart')
 
     },
-    createproduct:(req, res) =>  {
-         db.categories.findAll()
-         .then((resultado) => {
-
-          res.render ('createproduct',{categories: resultado})
-         })
-        
-
-    },
+    
     details:(req, res) =>  {
     
    
@@ -57,7 +50,7 @@ const productosController = {
                 ]
      })
      .then((productFound) =>{
-
+          
           res.render ('details',{producto: productFound})
           })
 
@@ -66,48 +59,51 @@ const productosController = {
 
     },
     editproduct:(req, res) =>  {
+     let productsRequest= db.products.findByPk(req.params.id)
+     let materialsRequest= db.materials.findAll()
+     let categoriesRequest= db.categories.findAll()
+     let intermediate= db.categories_products.findOne({where: {products_id: req.params.id}})
+     let c2Request= db.products.findByPk(req.params.id)
+     
+     Promise.all([productsRequest,materialsRequest,categoriesRequest,intermediate, c2Request])
+     .then(([products,materiales, categoria, intermediate, categoriaxPk]) => {
 
-          let productsRequest= db.products.findByPk(req.params.id)
-          let categoriesRequest= db.categories.findAll()
-          
-          Promise.all([productsRequest,categoriesRequest])
-          .then(([producto, categoria]) => {
 
-               
-          res.render ('editproduct',{producto: producto, categories:categoria})
-
+     res.render ('editproduct',{materials: materiales, categories:categoria, producto:products, 
+                                                 intermediate:intermediate, categoriaxPk:categoriaxPk })
+                    
      })
      },
-     
 
     update: (req,res) => {
 
-     let errors= validationResult(req);
-
-     if (errors.isEmpty()) {
-
-          db.products.update ({
-               name: req.body.name,
-               detail:req.body.detail,
-               price:req.body.price,
-               stock: req.body.stock
+          
+     console.log(req.body);
                
-          }, {
-               where: {
-                    id:req.params.id
-               }
+          
+          async function updateAsync() {
+               
+          const item = await db.products.update({
+               
+               name: req.body.name,
+               price: req.body.price,
+               detail: req.body.description,
+               stock: req.body.stock,
+               status: 1,
+               
+          },{ where: { id:req.params.id}})      
+           
+          await db.categories_products.update ({
+         
+               
+               categories_id: req.body.category,
+               material_id: req.body.materials
+           
+          },{ where: { products_id: item.id}})   
+     }
 
-          }) 
-          
-       
-         
-               res.redirect("/productslists"+ '/details/'+req.params.id);
-         
-     }
-     else {
-     res.render ('editproduct',{errors: errors.array()})
-     }
-          
+        res.redirect("/productslists"+ '/details/'+req.params.id);
+      
 
     },
 
@@ -131,25 +127,46 @@ const productosController = {
           res.redirect("/");
 },
 
+createproduct:(req, res) =>  {
+    
+     let materialsRequest= db.materials.findAll()
+     let categoriesRequest= db.categories.findAll()
+     
+     Promise.all([materialsRequest,categoriesRequest])
+     .then(([materiales, categoria]) => {
 
-    store: (req, res) => {
-			
-    db.products.create({
+          
+     res.render ('createproduct',{materials: materiales, categories:categoria})
+     
+
+})
+
+
+ 
+},
+    store: async(req, res) => {
+          
+          let producte= await db.products.create ({
          
-        id: req.body.id,
-       category: {name:req.body.category},
-       price: req.body.price,
-       detail: req.body.detail,
-       name: req.body.name,
-       stock: req.body.stock,
-       image: req.file.filename
+               name: req.body.name,
+               price: req.body.price,
+               detail: req.body.detail,
+               image: req.file.filename,
+               stock: req.body.stock,
+               status: 1,
+               
+           
+     }) 
+         await db.categories_products.create ({
+         
+          products_id: producte.id,
+          categories_id: req.body.category,
+          material_id: req.body.materials
+      
+     }) 
 
-    }, {
-         include:['categories']
-    })
-    res.redirect ('/')
-
+          res.redirect('/');
+     
+     }
 }
-}
-
 module.exports = productosController;

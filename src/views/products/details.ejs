@@ -41,29 +41,29 @@
                             </select>
 
                             <% } %> 
-                            <a href="/productslists/<%=producto.id%>/editproduct/" class="action-button edit">EDITAR PRODUCTO</a>
+                            <% if (locals.isLogged) { %>
+                               
+                            <a href="/productslists/<%=producto.id%>/editproduct/" class="action-button edit"><button type="submit" class="action-button delete">EDITAR</button></a>
                             
                             <form action="/productslists/<%=producto.id%>?_method=DELETE" method="POST" style="display: inline-flex">
                                 <button type="submit" class="action-button delete">ELIMINAR</button>
                             </form>
+                            <% } %>
                         <div></div>
                         <div class="WishlistAddCart">
                             <div class="fixed">
-                                <a href="/cart">
+                                <a href="#">
                                     <i class="fa fa-heart" aria-hidden="true" height="10%" width="auto" style="color:#0AA689"></i>
                                 </a>
-                                <p><a style="color: rgb(0, 116, 116);" href="#">A tus favoritos</a></p>
+                                <p><a style="color: rgb(0, 116, 116);" >A tus Favoritos</a></p>
                             </div>
 
                             <div class="fixed">
-                                <p style="color: rgb(255, 255, 255);"></p>
-                            </div>
-
-                            <div class="fixed">
+                               
                                 <a href="/productslists/cart">
                                     <i class="fa fa-shopping-cart" aria-hidden="true" height="10%" width="auto" style="color:#0AA689"></i>
                                 </a>
-                                <p><a style="color: rgb(0, 116, 116);" href="/productslists/cart">Al carrito</a></p>
+                                <p><a style="color: rgb(0, 116, 116);">Al Carrito</a></p>
                             </div>
                         </div>
                     </div>
@@ -101,5 +101,6 @@
         </main>
 
         <%- include('../partials/footer.ejs') %>
+        <script src="/js/cart.js"></script>
     </body>
 </html>

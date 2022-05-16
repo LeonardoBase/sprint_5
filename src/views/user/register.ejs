@@ -77,12 +77,12 @@
                 <div class="formulario__grupo" id="grupo__address">
                     <label for="address" class="formulario__label">Dirección de domicilio</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="address" id="address" >
+                        <input type="text" class="formulario__input" name="address" id="address" value="<%=locals.old && old.address ? old.address:' ' %>" >
                     </div>
                 </div>
                 <div class="formulario__grupo">
                     <label for="imageRegister"class="form-label">Subir Imágen de perfil</label>
-                    <input type="file" name="imageRegister"id='imageRegister'>
+                    <input type="file" name="imageRegister"id='imageRegister'value="<%=locals.old && old.imageRegister ? old.imageRegister:' ' %>">
                 </div>
 
                

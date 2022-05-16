@@ -16,7 +16,7 @@ function productsData(sequelize, Datatypes){
 
     productos.associate= function (models) {
 
-     productos.belongsToMany(models.material_products, {
+     productos.belongsToMany(models.materials, {
           as:'materials',
           through: 'categories_products',
           foreignKey: 'products_id',
@@ -24,13 +24,13 @@ function productsData(sequelize, Datatypes){
           timestamps: false,
      })
 
-         productos.belongsToMany(models.categories, {
+      productos.belongsToMany(models.categories, {
               as:'categories',
               through: 'categories_products',
               foreignKey: 'products_id',
               otherKey: 'categories_id',
               timestamps: false,
-         })
+     })
 
        
     }

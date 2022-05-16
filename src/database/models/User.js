@@ -2,12 +2,13 @@ function usersData(sequelize, Datatypes){
     let a= 'users';
     let b= {
       id: { type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
-      products: {type: Datatypes.DATE},
+      username: {type: Datatypes.STRING(50)},
       name: {type: Datatypes.STRING(50)},
-      email: {type: Datatypes.STRING(50)},
-      address: {type: Datatypes.FLOAT},
-      card: { type: Datatypes.INTEGER},
-      password: { type: Datatypes.DATE},
+      password: {type: Datatypes.STRING(50)},
+      address: {type: Datatypes.STRING(50)},
+      email: { type: Datatypes.STRING(50)},
+      address: { type: Datatypes.STRING(50)},
+      image: { type: Datatypes.STRING(50)},
    
     }
     let config = {camelcase: false, timestamps: false};
