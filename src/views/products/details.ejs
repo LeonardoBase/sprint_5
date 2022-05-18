@@ -50,22 +50,24 @@
                             </form>
                             <% } %>
                         <div></div>
-                        <div class="WishlistAddCart">
-                            <div class="fixed">
-                                <a href="#">
-                                    <i class="fa fa-heart" aria-hidden="true" height="10%" width="auto" style="color:#0AA689"></i>
-                                </a>
-                                <p><a style="color: rgb(0, 116, 116);" >A tus Favoritos</a></p>
-                            </div>
-
-                            <div class="fixed">
-                               
-                                <a href="/productslists/cart">
-                                    <i class="fa fa-shopping-cart" aria-hidden="true" height="10%" width="auto" style="color:#0AA689"></i>
-                                </a>
-                                <p><a style="color: rgb(0, 116, 116);">Al Carrito</a></p>
-                            </div>
-                        </div>
+                        
+                            <button class="agregarcarrito" data-id="<%= producto.id %>" style="
+                                  color: rgb(255, 255, 255);
+                                  background-color: rgb(0, 116, 116);
+                                  font-size: medium;
+                                ">
+                              A tus favoritos
+                            </button>
+                            <i class="fa fa-heart" aria-hidden="true" height="10%" width="auto" style="color: #0aa689"></i>
+            
+                            <button formaction="#" class="agregarcarrito" data-id="<%= producto.id %>" style="
+                                  color: rgb(255, 255, 255);
+                                  background-color: rgb(0, 116, 116);
+                                  font-size: medium;
+                                ">
+                              Al carrito
+                            </button>
+                            <i class="fa fa-shopping-cart" aria-hidden="true" height="10%" width="auto" style="color: #0aa689"></i>
                     </div>
                 </div>
             </section>

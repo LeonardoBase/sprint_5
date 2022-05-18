@@ -30,7 +30,7 @@ window.addEventListener("load", function () {
     let validarFormulario = [];
   
       
-    if (enombre.test(nombre.value)) {             
+    if (enombre.test(nombre.value.trim())) {             
       correcto1.style.display = "none"; //none= todo bien/lo oculta
       
     } else {

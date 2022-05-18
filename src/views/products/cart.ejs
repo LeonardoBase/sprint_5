@@ -9,33 +9,27 @@
                    <!-- header -->
         
         <main style="background-image:url('images/Plantillas Feed-02_v2.jpg')">
-            <div class="cart-page" id="carrito">
-
-                <h1>Mi Carrito</h1>
-
-                    <table id="lista-carrito">
-                        <tbody>
-                                
-                        </tbody>
-                     </table>
+        
+            <div id="cart">
+                <p class="vacio"style="display:none">Carrito Vacio</p>
+                <table id="lista-carritoview"class="u-full-width">
+                    
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+                <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar carrito</a>
+                <a href="/productslists/cart" id="vaciar-carrito" class="button u-full-width">Ir al carrito</a>
             </div>
 
             <section class="container-cart">
-                <div class="total-price">
+                <div >
                     <table>
-                        <tr>
-                            <td style="color:rgb(0, 116, 116)">Subtotal:</td>
-                            <td>$7000</td>
-                        </tr>
+                       
 
                         <tr>
-                            <td style="color:rgb(0, 116, 116)">IVA (27%):</td>
-                            <td>$1890</td>
-                        </tr>
-
-                        <tr>
-                            <td style="color:rgb(0, 116, 116)">Total:</td>
-                            <td>$8890</td>
+                            <td class="amount" style="color:rgb(0, 116, 116); text-align: right;">Total:<span id="price-total">  </span></td>
+                            
                         </tr>
                     </table>
                 </div>
@@ -44,12 +38,13 @@
                     <button type="submit" class="formulario__btn">Ir al portal de pago!</button>
                 </div>
             </section>
+
        <!-- site-shopping-info -->
      <%- include('../partials/site-shopping-info.ejs') %>
     <!-- site-shopping-info -->
         </main>
 
         <%- include('../partials/footer.ejs') %>
-        
+        <script src="/js/cartlocal.js"></script>
     </body>
 </html>
