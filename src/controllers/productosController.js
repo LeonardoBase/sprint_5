@@ -85,9 +85,9 @@ const productosController = {
                
           const item = await db.products.update({
                
-               name: req.body.name,
-               price: req.body.price,
-               detail: req.body.description,
+               name: req.body.name,
+               price: req.body.price,
+               detail: req.body.description,
                stock: req.body.stock,
                status: 1,
                
