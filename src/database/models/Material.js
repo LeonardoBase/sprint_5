@@ -1,13 +1,13 @@
-function materialData(sequelize, Datatypes){
-    let a= 'materials';
-    let b= {
-      id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
-      name: {type: Datatypes.STRING(50)}
+function materialData(sequelize, Datatypes){
+    let a= 'materials';
+    let b= {
+    id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
+     name: {type: Datatypes.STRING(50)}
       
    
     }
-    let config = {camelcase: false, timestamps: false};
-    const materials = sequelize.define(a,b,config)
+    let config = {camelcase: false, timestamps: false};
+    const materials = sequelize.define(a,b,config)
 
     materials.associate= function (models) {
         materials.belongsToMany(models.products, {
@@ -20,7 +20,7 @@ function materialData(sequelize, Datatypes){
      
  }
   
-    return materials;
+    return materials;
     } 
     
     module.exports= materialData;

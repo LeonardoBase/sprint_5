@@ -1,13 +1,13 @@
-function categoryData(sequelize, Datatypes){
-    let a= 'categories';
-    let b= {
-      id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
-      name: {type: Datatypes.STRING(50)}
+function categoryData(sequelize, Datatypes){
+    let a= 'categories';
+    let b= {
+     id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
+     name: {type: Datatypes.STRING(50)}
       
    
     }
-    let config = {camelcase: false, timestamps: false};
-    const categories = sequelize.define(a,b,config)
+    let config = {camelcase: false, timestamps: false};
+    const categories = sequelize.define(a,b,config)
 
     categories.associate= function (models) {
       categories.belongsToMany(models.products, {
@@ -20,7 +20,7 @@ function categoryData(sequelize, Datatypes){
      
  }
   
-    return categories;
+    return categories;
     } 
     
     module.exports= categoryData;

@@ -1,18 +1,18 @@
-function productsData(sequelize, Datatypes){
-    let a= 'products';
-    let b= {
-      id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
-      name: {type: Datatypes.STRING(50)},
-      price: {type: Datatypes.INTEGER},
-      detail: {type: Datatypes.STRING(50)},
-       image: {type: Datatypes.STRING(50)},
-       stock: {type: Datatypes.INTEGER},
-       status: {type: Datatypes.INTEGER}
+function productsData(sequelize, Datatypes){
+    let a= 'products';
+    let b= {
+     id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
+      name: {type: Datatypes.STRING(50)},
+      price: {type: Datatypes.INTEGER},
+      detail: {type: Datatypes.STRING(50)},
+       image: {type: Datatypes.STRING(50)},
+       stock: {type: Datatypes.INTEGER},
+       status: {type: Datatypes.INTEGER}
       
    
     }
-    let config = {camelcase: false, timestamps: false};
-    const productos = sequelize.define(a,b,config)
+    let config = {camelcase: false, timestamps: false};
+    const productos = sequelize.define(a,b,config)
 
     productos.associate= function (models) {
 
@@ -35,7 +35,7 @@ function productsData(sequelize, Datatypes){
        
     }
     
-    return productos;
+    return productos;
     } 
     
     module.exports= productsData;
