@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+                    <!-- head    -->
+                    <%- include('../partials/head.ejs') %>
+                    <!-- head    -->
+    <body>
+                   <!-- header -->
+                   <%- include('../partials/header.ejs') %>
+                   <!-- header -->
+        
+        <main style="background-image:url('images/Plantillas Feed-02_v2.jpg')">
+        
+            <div id="cart">
+                <p class="vacio"style="display:none">Carrito Vacio</p>
+                <table id="lista-carritoview"class="u-full-width">
+                    
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+                <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar carrito</a>
+                <a href="/productslists/cart" id="vaciar-carrito" class="button u-full-width">Ir al carrito</a>
+            </div>
+
+            <section class="container-cart">
+                <div >
+                    <table>
+                       
+
+                        <tr>
+                            <td class="amount" style="color:rgb(0, 116, 116); text-align: right;">Total:<span id="price-total">  </span></td>
+                            
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="login__grupo-btn-pago">
+                    <button type="submit" class="formulario__btn">Ir al portal de pago!</button>
+                </div>
+            </section>
+
+       <!-- site-shopping-info -->
+     <%- include('../partials/site-shopping-info.ejs') %>
+    <!-- site-shopping-info -->
+        </main>
+
+        <%- include('../partials/footer.ejs') %>
+        <script src="/js/cartlocal.js"></script>
+    </body>
+</html>
