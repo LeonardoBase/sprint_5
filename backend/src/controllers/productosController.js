@@ -108,7 +108,7 @@ const productosController = {
     },
 
     erase:(req, res) =>  {
-     // let imagedb= db.products.image
+     let imagedb= db.products.image
          
         
      db.products.destroy({
@@ -167,6 +167,28 @@ createproduct:(req, res) =>  {
 
           res.redirect('/');
      
-     }
+     },
+     productslistsApi:(req, res) =>  {
+
+          db.products.findAll({
+
+               include: [
+                    {association:'categories' },
+                    {association:'materials' }     
+                    
+               ]
+          })
+          .then((products) =>{
+
+              
+     
+               res.json ({productos: products})
+     
+          })
+
+         
+         
+ 
+     },
 }
 module.exports = productosController;

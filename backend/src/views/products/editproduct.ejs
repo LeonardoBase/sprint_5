@@ -13,23 +13,26 @@
 
 		</div>
 		<div class="col-12">
-			<form action="/productslists/<%=producto.id%>?_method=PUT" method="POST">
+			<form action="/productslists/<%=producto.id%>?_method=PUT" method="POST" id="formedit">
 				<div class="row product-detail">
 					<div class="col-12 col-md-6">
 						<label for="name" class="form-label">Nombre del producto:</label>
-						<input type="text" id="name" name="name"value="<%=producto.name%>" class="form-input">
+						<input type="text"  id="name" name="name"value="<%=producto.name%>" class="form-input">
+						<p class="formulario_error1 formulario_error"><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Este campo solo puede llevar Letras, espacios o acentos. </p>
 					
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="price" class="form-label">Precio del producto:</label>
 						<input type="number" id="price" name="price"  value="<%=producto.price%>" class="form-input">
+						<p class="formulario_error2 formulario_error"><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena este campo y solo usa números. </p>
 					</div>
 					<div class="col-12 col-md-6">
-						<label for="stock" class="form-label">Stock:</label>
+						<label for="stock" class="formulario_error3 form-label">Stock:</label>
 						<input type="number" id="stock" name="stock" value="<%=producto.stock%>" class="form-input">
+						<p class="formulario_error3 formulario_error"><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena este campo y solo usa números. </p>
 					</div>
 					<div class="col-12 col-md-6">
-						<br><label for="category" class="form-label">Categoría:</label>
+						<br><label for="category" class="formulario_error4 form-label">Categoría:</label>
 						<select name="category" id="category" class="form-input">						
 							<option value="">Selecciona</option>
 						
@@ -39,9 +42,10 @@
 								
 					
                         </select>        
+						<p class="formulario_error4 formulario_error"><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena este campo. </p>
         			</div>
 					<div class="col-12 col-md-6">
-						<br><label for="materials" class="form-label">Material:</label>
+						<br><label for="materials" class="formulario_error5 form-label">Material:</label>
 						<select name="materials" id="materials" class="form-input">
 							<option value="">Selecciona</option>	
 							<% for (let m of materials)  { %> 
@@ -58,11 +62,12 @@
 					<div class="col-12">
 						<br><label for="description"  class="form-label">Descipción:</label>
 						<textarea name="description" id="description"  class="form-input"><%=producto.detail%></textarea>
+						<p class="formulario_error7 formulario_error"><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena este campo y evita usar carácteres especiales </p>
 					</div>
 					<div class="col-12 col-md-6">
 						<img src="/images/products/<%-producto.image%>" alt="imagen de producto" width="50%" height="50%">
 						<label for="imageProduct"class="form-label">Actualizar Imágen</label>
-						<!-- <input type="file" name="imageProduct" class="inputimage" id="inputimage"> -->
+						<input type="file" name="imageProduct" class="inputimage" id="inputimage"> 
 						<p class="formulario_error6 formulario_error"><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Tienes que subir una imágen </p>
 					</div>
 					
@@ -78,7 +83,7 @@
 
 </main>
 	<!-- /todos los productos -->
-
+	<script src="/js/edit.js"></script>
 	<!-- footer -->
 	<%- include('../partials/footer') %>
 	<!-- /footer -->

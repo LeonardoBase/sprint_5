@@ -18,6 +18,8 @@ router.get ('/cart', productosController.cart);
 router.get ('/', productosController.productslists);
 
 router.post ('/', productosController.productslists);
+
+router.get ('/api', productosController.productslistsApi);
             
 
 router.get ('/create', productosController.createproduct);

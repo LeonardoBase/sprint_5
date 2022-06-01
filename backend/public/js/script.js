@@ -16,7 +16,7 @@ window.addEventListener("load", function () {
     let price = document.getElementById("price");
     let stock = document.getElementById("stock");
     let materials = document.getElementById("materials");
-    let description = document.getElementById("detail");
+    let description = document.getElementById("description");
     let imagen = document.getElementById("inputimage");
 
     let correcto1 = document.querySelector(".formulario_error1");
@@ -30,7 +30,7 @@ window.addEventListener("load", function () {
     let validarFormulario = [];
   
       
-    if (enombre.test(nombre.value.trim())) {             
+    if (enombre.test(nombre.value)) {             
       correcto1.style.display = "none"; //none= todo bien/lo oculta
       
     } else {

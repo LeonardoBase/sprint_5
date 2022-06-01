@@ -525,6 +525,15 @@ th:last-child{
     text-align: center;
 }
 
+.container-cart {
+    display: flex;
+    flex-direction: row-reverse;
+    max-width: 100%;
+    padding-left: 0%;
+    padding-right: 0%;
+    justify-content: space-around;
+}
+
 
 /*From now on, Login:*/
 .formulario {
@@ -807,12 +816,8 @@ html, body {
     }
  
     .submenu #carrito {
-       
+        
         display: none;
-    }
-    .submenu .totalclass {
-        display: flex;
-        justify-content: flex-end;
     }
     .submenu:hover #carrito {
         display: block;
