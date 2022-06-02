@@ -6,18 +6,22 @@ const vacio= document.querySelector(".vacio");
 const contadorCarrito= document.getElementById('contadorCarrito')
 const priceTotal= document.querySelector('#total-header')
 
-
-
+const cart= []
 
 cargarEventListeners()
 
+const carritoCount = obtenerProductosLocalStorage()
+
+
+
 function cargarEventListeners() {
+  
   products.addEventListener("click", compraProductos);
   carrito.addEventListener("click", eliminarProducto);
   vaciarCarritoBtn.addEventListener("click", vaciarCarrito);
   document.addEventListener("DOMContentLoaded", leerLocalStorage);
 }
-const carritoCount = obtenerProductosLocalStorage()
+
 
 function compraProductos(e) {
     
@@ -26,11 +30,10 @@ function compraProductos(e) {
         leerDatosProducto(producto)
         alert('Agregaste exitosamente')
         
+     
     }
-    
+   
 }
-
-
 function leerDatosProducto(producto) {
     let infoProducto= {
         imagen: producto.querySelector('img').src,
@@ -40,28 +43,44 @@ function leerDatosProducto(producto) {
         cantidad:1
     }
    
+    cart.push(infoProducto)
+    
     insertarCarrito(infoProducto) 
-
+    
 }
 
+function contadorRapido() {
+    const nPrecio = Object.values(cart).reduce((acc, {cantidad, precio}) => acc + cantidad * precio,0)
+    return nPrecio
+  }
 
 function insertarCarrito (producto) {
-   
+    
     let row= document.createElement('tr')
     row.innerHTML= `
       <td class="lleno">
             <img src="${producto.imagen}" width=100%>
       </td>
       <td>${producto.titulo}</td>
-      <td>${producto.precio}</td>
+      <td>${producto.precio}$</td>
       <td>
         <a href="#" class="borrar-producto" data-id="${producto.id}">X</a>
        </td>
     `;
-    
+    if (carritoCount.length>0) {
+        
+    const cartTotal = cart.concat(carritoCount);
+        contadorCarrito.innerText= cartTotal.length
+        priceTotal.innerText = '$'+ Object.values(cartTotal).reduce((acc, {cantidad, precio}) => acc + cantidad * precio,0)
+        
+    } else {
+        contadorCarrito.innerText= cart.length
+        priceTotal.innerText = '$'+ contadorRapido()
+       
+    }
+
     listaProductos.appendChild(row)
-    
-    
+
     guardarProductoLocalStorage(producto)
     
 
@@ -69,26 +88,41 @@ function insertarCarrito (producto) {
 
 function eliminarProducto(e) {
     
-   
+
     let producto
     let productoId
+    let productoLS= cart
+
 
     if(e.target.classList.contains('borrar-producto')) {
         e.target.parentElement.parentElement.remove()
             producto= e.target.parentElement.parentElement
             productoId= producto.querySelector('a').getAttribute('data-id')
+            for( let i = 0; i < productoLS.length; i++){ 
+                                   
+                if ( productoLS[i].id === productoId) { 
+                    productoLS.splice(i, 1); 
+                    contadorCarrito.innerHTML=  cart.length
+                    priceTotal.innerText = '$'+ contadorRapido()
+                }
+                console.log(productoLS)
+            }
+         
     }
     eliminarProductoLocalStorage(productoId)
 }
 
-function vaciarCarrito(e) {
+function vaciarCarrito() {
     
     while(listaProductos.firstChild) {
         listaProductos.removeChild(listaProductos.firstChild)
+        
     }
-
+    cart.splice(0,cart.length)
+    contadorCarrito.innerHTML=  cart.length
+    priceTotal.innerText = '$'+ 0
     vaciarLocalStorage()
-    
+    cargarEventListeners()
     return false
 }
 
@@ -117,7 +151,7 @@ function sumaTotal() {
     return nPrecio
   }
 
-  console.log(sumaTotal());
+ 
   
 
 function leerLocalStorage() {
@@ -145,15 +179,9 @@ function leerLocalStorage() {
 function eliminarProductoLocalStorage(productoId) {
     let productoLS;
     productoLS= obtenerProductosLocalStorage()
-   
-
-    // productoLS.forEach(function(productoLS, index) {
-    //     console.log(producto)
-    //     if(productoLS.id === productoId) {
-    //         productoLS.splice(index, 1)
-    //     }      
-    // });
-    productoLS=productoLS.filter(producto => producto.id !==productoId )
+    
+                
+    productoLS=productoLS.filter(producto => producto.id !==productoId  )
 
     localStorage.setItem('productos',JSON.stringify(productoLS))
 }

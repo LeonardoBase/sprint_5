@@ -58,7 +58,7 @@ function leerLocalStorage() {
 
     productoLS.forEach(producto => {
         const row = document.createElement('tr');
-        const rod = document.createElement('tr');
+        
         row.innerHTML = `
         <td class="lleno">
             <img src="${producto.imagen}" width=100>
@@ -69,25 +69,15 @@ function leerLocalStorage() {
         <a href="#" class="borrar-producto" data-id="${producto.id}">X</a>
        </td> 
         `;
-        rod.innerHTML = `
-        <td>
-            <img src="${producto.imagen}" width=100>
-      </td>
-      <td>${producto.titulo}</td>
-      <td class="preciox">${producto.precio}$</td>
-      <td>
-        <a href="#" class="borrar-producto" data-id="${producto.id}">X</a>
-       </td> 
-        `;
+        
 
         listaProductos.appendChild(row);
-        listaProductosView.appendChild(rod);
+       
 
     });
 
     contadorCarrito.innerText= carritoCount.length
-    priceTotal.innerText= sumaTotal()
-    totalHeader.innerText=sumaTotal()
+    totalHeader.innerText= '$'+sumaTotal()
             
 
     }
