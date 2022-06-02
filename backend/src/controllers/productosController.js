@@ -169,26 +169,76 @@ createproduct:(req, res) =>  {
      
      },
      productslistsApi:(req, res) =>  {
+          
+     let productsRequest= db.products.findAll()
+     let categories1= db.categories_products.count({
 
-          db.products.findAll({
+          where: {categories_id:'1' }
+     })
+     let categories2= db.categories_products.count({
 
+          where: {categories_id:'2' }
+     })
+     let categories3= db.categories_products.count({
+
+          where: {categories_id:'3' }
+     })
+     let categories4= db.categories_products.count({
+
+          where: {categories_id:'4' }
+     })
+     let categories5= db.categories_products.count({
+
+          where: {categories_id:'5' }
+     })
+     
+     Promise.all([productsRequest,categories1,categories2,categories3,categories4,categories5])
+
+          
+          .then(([products, categories1,categories2,categories3,categories4,categories5]) =>{
+
+               res.json ({
+                    
+                    aro: categories1,
+                    cadenita: categories2,
+                    dije: categories3,
+                    pulsera:categories4,
+                    anillo:categories5,
+                    count: products.length,
+                    productos: products
+               })
+     
+          })
+
+     },
+     productsbypkApi: (req,res) => {
+
+            
+          db.products.findByPk(req.params.id,{
                include: [
                     {association:'categories' },
                     {association:'materials' }     
                     
                ]
           })
-          .then((products) =>{
-
+          .then((productFound) =>{
               
-     
-               res.json ({productos: products})
-     
+              res.json ({product: productFound})
           })
 
-         
-         
- 
+
      },
+
+     categoriesApi: (req,res) => { 
+          db.categories.findAll()
+          .then((categorie) =>{
+               
+               res.json ({
+                    total_de_categorias: categorie.length,
+                    })
+           })
+
+     }
+
 }
 module.exports = productosController;

@@ -14,8 +14,12 @@
         Todos los productos
       </h2>
     </div>
+
+    
     <div id="lista-products" class="container">
-        
+    <% if (productos.length!='') { %>
+     
+    
       <div class="row row-cols-4">
         
         <%for (let p of productos) { %>
@@ -28,7 +32,7 @@
               </a>
           
                 <h4><%=p.name%></h4>
-                <h2>$<%=p.price %></h2>
+                <h2><%=p.price %></h2>
                 <% for( let i = 0; i < p.categories.length; i++ ) { %>
                 <li>Categoría: <%= p.categories[i].name %></li>
 
@@ -63,7 +67,9 @@
     
 
         <% } %>
-    
+        
+        <% } else { %> <p>no hay coincidencias</p>
+          <% } %>
       </div>
     </div>
   </main>

@@ -18,9 +18,10 @@ router.get ('/cart', productosController.cart);
 router.get ('/', productosController.productslists);
 
 router.post ('/', productosController.productslists);
-
+//Apis
 router.get ('/api', productosController.productslistsApi);
-            
+router.get ('/:id/api', productosController.productsbypkApi);  
+router.get ('/categoriesApi', productosController.categoriesApi);        
 
 router.get ('/create', productosController.createproduct);
 

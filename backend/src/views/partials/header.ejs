@@ -20,10 +20,10 @@
                 <li><a style="color: rgb(247, 245, 245);" href="#"><i class="far fa-heart"></i></a></li>   <br>             
                 <li><a style="color: rgb(252, 249, 249);" href="/help"><i class="far fa-question-circle"></i></a></li><br>
                    
-                    <li class="submenu">
+                    <li class="submenu"><span id="contadorCarrito">0</span>
                     <a style="color: rgb(255, 251, 251);" href="/productslists/cart"><i class="fas fa-shopping-cart"></i></a>
                     <div id="carrito">
-                        <p class="vacio">Carrito Vacio</p>
+                        <p class="vacio" style="display: none;">Carrito Vacio</p>
                         <table id="lista-carrito"class="u-full-width">
                             
                             <tbody>
@@ -32,6 +32,9 @@
                         </table>
                         <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar carrito</a>
                         <a href="/productslists/cart" id="vaciar-carrito" class="button u-full-width">Ir al carrito</a>
+                        <br><br><div class="totalclass">
+                            Total: <p id="total-header">$</p>    
+                        </div>
                     </div>
                     </li>
             </ul>
@@ -45,7 +48,7 @@
                 <img class="logo" src="/images/Logo 2_2.jpg" alt="Logo de Filia">
             </a>
             
-            <form class="search-box" method="GET" action="/result" name="search">
+            <form class="search-box" method="GET" action="/search" name="search">
                 <input type="text" name="search_query" placeholder=" "/>
                 <button type="reset"> </button>
                 

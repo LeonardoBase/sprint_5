@@ -37,6 +37,9 @@ router.get ('/register',  guestMiddleware, userController.register)
 
 router.post ('/register', uploadFileusers.single('imageRegister'), validacionesregistro, userController.store)
 
+//APIS//
+router.get ('/api', userController.usersApi)
+router.get ('/api/:id', userController.usersbypkApi)
 
 
 module.exports = router;

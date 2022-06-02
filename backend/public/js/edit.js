@@ -73,13 +73,7 @@ window.addEventListener('load', function(){
             } else {
                 correcto5.style.display='none'
             }
-            if (imagen.value =='') {
-               
-            correcto6.style.display='block'
-            validarFormulario.push(1)
-            } else {
-                correcto6.style.display='none'
-            }
+          
             if (description.value =='') {
             
             correcto7.style.display='block'
