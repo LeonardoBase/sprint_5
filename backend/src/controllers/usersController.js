@@ -109,7 +109,9 @@ let userController = {
     return res.redirect("/");
   },
   usersApi: (req, res) => {
-    db.users.findAll().then((users) => {
+    db.users.findAll( {
+      attributes: {exclude: ['password','address']}        
+  }).then((users) => {
       res.json({
         count: users.length,
         users: users,
