@@ -31,9 +31,9 @@ router.get ('/login', userController.login)
 
 router.get ('/logout', userController.logout)
 
-router.post ('/login', uploadFileusers.single('imageLogin'), validacioneslogin, userController.processLogin)
-
 router.get ('/register',  guestMiddleware, userController.register)
+
+router.post ('/login', uploadFileusers.single('imageLogin'), validacioneslogin, userController.processLogin)
 
 router.post ('/register', uploadFileusers.single('imageRegister'), validacionesregistro, userController.store)
 

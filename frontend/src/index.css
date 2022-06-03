@@ -18,6 +18,10 @@ ul#accordionSidebar {
   background-image: linear-gradient(90deg,#a5b3b3 10%,#ad0909 100%);
   font-size: larger;
 }
-.bg-info {
-  background-color: red ;
+div .bg-info {
+  background-color: rgb(160, 45, 36) !important;
+}
+
+h6 .text-primary {
+  color: #bcc90a !important;
 }

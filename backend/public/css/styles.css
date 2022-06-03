@@ -1,13 +1,12 @@
 *{  
-    font-family: 'Comforter', cursive;
-    font-family: 'Prompt', sans-serif;
+    font-family: 'Bree Serif', serif;
     margin: 0px;
     padding: 0px;    
     box-sizing: border-box;
 }
 
 body {
-    background-image: linear-gradient(90deg,#434949 5%,#4fc0c0 100%);
+    background-image: linear-gradient(90deg,#F2E3D5 5%,#4fc0c0 100%);
 }
 
 /* 
@@ -166,10 +165,11 @@ form.search-box {
 }
 
 .bottom-header{
+    font-family: 'Bree Serif', serif;
     padding-top: 0.5%;
     background-image: linear-gradient(90deg,#141616 10%,#007474 100%);
     border-color: rgb(5, 5, 5);
-
+    font-size: 20px;
     border-width: 10px;
     padding-right: 0%;
     padding-left: 0%;
@@ -549,7 +549,7 @@ th:last-child{
 }
 .formulario__input {
 	width: 100%;
-	background: #0AA689;
+	background: #68a89d;
 	border: 3px solid transparent;
 	border-radius: 3px;
 	height: 45px;
@@ -591,6 +591,16 @@ th:last-child{
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 100px;
+    font-family: 'Bree Serif', serif;
+
+}
+
+.list-login {
+        
+   font-size: 20px;
+   font-family: 'Bree Serif', serif;
+   font-family: 'Open Sans', sans-serif
+   
 }
 
 .main-register {            /** This class is also present in the register view */

@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import productsApi from './components/productsApi.js'
+import usersApi from './components/usersApi';
 
 
 function App() {
@@ -70,7 +72,7 @@ function App() {
                     <i className="fa fa-bars" />
                   </button>
                   {/* Topbar Navbar */}
-                  <ul className="aywey">
+                  <ul>
                     
                     {/* Nav Item - User Information */}
                    
@@ -111,7 +113,7 @@ function App() {
                               <div className="h5 mb-0 font-weight-bold text-gray-800 categories">XXX</div>
                             </div>
                             <div className="col-auto">
-                              
+                            <i className="fas fa-hive text-gray-300"></i>
                             </div>
                           </div>
                         </div>
@@ -148,7 +150,7 @@ function App() {
                             <img className="img-fluid px-3 px-sm-4 mt-3 mb-4 imagenProducto" style={{width: '25rem'}} src="assets/images/product_dummy.svg" alt="image dummy" />
                           </div>
                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa exercitationem ratione?</p>
-                          <a target="_blank" rel="nofollow" href="/">View product detail</a>
+                          <a target="_blank" rel="nofollow" href="/">Ver detalles de producto</a>
                         </div>
                       </div>
                     </div>
@@ -156,14 +158,14 @@ function App() {
                      <div className="col-lg-6 mb-4">
                       <div className="card shadow mb-4">
                         <div className="card-header py-3">
-                          <h6 className="m-0 font-weight-bold text-primary">Ultimo usuario creado</h6>
+                          <h6 className="m-0 font-weight-bold text-warning">Ultimo usuario creado</h6>
                         </div>
                         <div className="card-body">
                           <div className="text-center">
                             <img className="img-fluid px-3 px-sm-4 mt-3 mb-4 imagenUsuario" style={{width: '25rem'}} src="assets/images/product_dummy.svg" alt="image dummy" />
                           </div>
                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa exercitationem ratione?</p>
-                          <a target="_blank" rel="nofollow" href="/">View product detail</a>
+                          <a target="_blank" rel="nofollow" href="/">Ver detalles de usuario</a>
                         </div>
                       </div>
                     </div>
@@ -171,7 +173,7 @@ function App() {
                     <div className="col-lg-6 mb-4">						
                       <div className="card shadow mb-4">
                         <div className="card-header py-3">
-                          <h6 className="m-0 font-weight-bold text-primary">Total de registros por categoria</h6>
+                          <h6 className="m-0 font-weight-bold text-success">Total de registros por categoria</h6>
                         </div>
                         <div className="card-body">
                           <div className="row">

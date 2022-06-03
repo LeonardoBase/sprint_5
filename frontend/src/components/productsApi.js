@@ -1,10 +1,10 @@
 import '../App.js'
 import {useState } from 'react'
 
-function usersApi () {
+function productsApi () {
 
 
 
 }
 
-export default usersApi
+export default productsApi
