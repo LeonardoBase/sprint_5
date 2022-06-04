@@ -1,8 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import productsApi from './components/productsApi.js'
+import productsApi from './components/categoriesApi.js'
 import UsersApi from './components/usersApi.js';
-
+import CategoriesApi from './components/categoriesApi.js'
+import ProductsApi from './components/productsApi.js'
+import CatXproduct from './components/catXproduct'
+import Ultimo from './components/ultimo'
 
 function App() {
  
@@ -94,7 +97,7 @@ function App() {
                           <div className="row no-gutters align-items-center">
                             <div className="col mr-2">
                               <div className="text-xs font-weight-bold text-primary text-uppercase mb-1"> Productos</div>
-                              <div className="h5 mb-0 font-weight-bold text-gray-800 total-products">XXX</div>
+                              <div className="h5 mb-0 font-weight-bold text-gray-800 total-products"><ProductsApi/></div>
                             </div>
                             <div className="col-auto">
                               <i className="fas fa-clipboard-list fa-2x text-gray-300" />
@@ -110,7 +113,7 @@ function App() {
                           <div className="row no-gutters align-items-center">
                             <div className="col mr-2">
                               <div className="text-xs font-weight-bold text-success text-uppercase mb-1">Categorias</div>
-                              <div className="h5 mb-0 font-weight-bold text-gray-800 categories">XXX</div>
+                              <div className="h5 mb-0 font-weight-bold text-gray-800 categories"><CategoriesApi/></div>
                             </div>
                             <div className="col-auto">
                             <i className="fas fa-hive text-gray-300"></i>
@@ -140,83 +143,11 @@ function App() {
                   {/* Content Row */}
                   <div className="row">
                     {/* Last Product in DB */}
-                    <div className="col-lg-6 mb-4">
-                      <div className="card shadow mb-4">
-                        <div className="card-header py-3">
-                          <h6 className="m-0 font-weight-bold text-primary">Ultimo producto creado</h6>
-                        </div>
-                        <div className="card-body">
-                          <div className="text-center">
-                            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4 imagenProducto" style={{width: '25rem'}} src="assets/images/product_dummy.svg" alt="image dummy" />
-                          </div>
-                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa exercitationem ratione?</p>
-                          <a target="_blank" rel="nofollow" href="/">Ver detalles de producto</a>
-                        </div>
-                      </div>
-                    </div>
+                    <Ultimo/>
                      {/* Last User in DB */}
-                     <div className="col-lg-6 mb-4">
-                      <div className="card shadow mb-4">
-                        <div className="card-header py-3">
-                          <h6 className="m-0 font-weight-bold text-warning">Ultimo usuario creado</h6>
-                        </div>
-                        <div className="card-body">
-                          <div className="text-center">
-                            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4 imagenUsuario" style={{width: '25rem'}} src="assets/images/product_dummy.svg" alt="image dummy" />
-                          </div>
-                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa exercitationem ratione?</p>
-                          <a target="_blank" rel="nofollow" href="/">Ver detalles de usuario</a>
-                        </div>
-                      </div>
-                    </div>
+                     
                     {/* Categories in DB */}
-                    <div className="col-lg-6 mb-4">						
-                      <div className="card shadow mb-4">
-                        <div className="card-header py-3">
-                          <h6 className="m-0 font-weight-bold text-success">Total de registros por categoria</h6>
-                        </div>
-                        <div className="card-body">
-                          <div className="row">
-                            <div className="col-lg-6 mb-4">
-                              <div className="card bg-info text-white shadow">
-                                <div className="card-body">
-                                  Aro: <span className='category1'>XX</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-lg-6 mb-4">
-                              <div className="card bg-info text-white shadow">
-                                <div className="card-body">
-                                  Cadenita: <span className='category2'>XX</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-lg-6 mb-4">
-                              <div className="card bg-info text-white shadow">
-                                <div className="card-body">
-                                  Dije: <span className='category3'>XX</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-lg-6 mb-4">
-                              <div className="card bg-info text-white shadow">
-                                <div className="card-body">
-                                  Pulsera: <span className='category4'>XX</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-lg-6 mb-4">
-                              <div className="card bg-info text-white shadow">
-                                <div className="card-body">
-                                  Anillo:  <span className='category5'>XX</span>
-                                </div>
-                              </div>
-                            </div>
-                          
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <CatXproduct/>
                   </div>
                 </div>
                 {/* /.container-fluid */}
