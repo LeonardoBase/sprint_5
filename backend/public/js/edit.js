@@ -88,9 +88,14 @@ window.addEventListener('load', function(){
     
                if (validarFormulario.length==0) {
                    formulario.submit()
+                   Swal.fire(
+                    'Perfecto!!',
+                    'Producto editado con exito!',
+                    'success'
+                  )
                    
                }
-          
+        
       
         })
     

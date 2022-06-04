@@ -36,6 +36,8 @@ window.addEventListener("load", function () {
     } else {
       correcto1.style.display = "block"; //block= que muestre el error
       validarFormulario.push(1);
+      
+   
     }                           
     if (eprice.test(price.value)) {
       
@@ -70,19 +72,24 @@ window.addEventListener("load", function () {
     } else {
       correcto6.style.display = "none";
     }
-    if (edescription.test(description.value)) {
+    if (edescription.test(detail.value)) {
       correcto7.style.display = "none";
       
     } else {
       correcto7.style.display = "block";
       validarFormulario.push(1);
-      console.log([validarFormulario])
      
     }
 
     if (validarFormulario.length == 0) {
+     
       formulario.submit();
-    }
+      Swal.fire(
+        'Producto creado con exito!',
+        'success'
+      )
+    } 
+    
   });
 
   // --------------------------------------

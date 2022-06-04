@@ -1,7 +1,3 @@
-Swal.fire({
-    title:"Envíos gratis a partir de 6000 Pesos"
-})
-
 const carrito = document.getElementById("carrito");
 const products = document.getElementById("lista-products");
 const listaProductos = document.querySelector("#lista-carrito tbody");
@@ -32,6 +28,24 @@ function compraProductos(e) {
     if(e.target.classList.contains('agregarcarrito')){
         const producto= e.target.parentElement.parentElement
         leerDatosProducto(producto)
+         
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        
+        Toast.fire({
+            icon: 'success',
+            title: 'Agregaste al carrito'
+        })
+        
      
     }
    
@@ -123,6 +137,23 @@ function vaciarCarrito() {
     cart.splice(0,cart.length)
     contadorCarrito.innerHTML=  cart.length
     priceTotal.innerText = '$'+ 0
+    Swal.fire({
+        title: 'Estas seguro?',
+        text: "No puedes revertir esto",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, vaciar el carrito'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Vaciado!',
+            'El carrito ha sido vaciado.',
+            'success'
+          )
+        }
+      })
     vaciarLocalStorage()
     cargarEventListeners()
     return false

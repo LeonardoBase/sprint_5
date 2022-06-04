@@ -1,7 +1,3 @@
-Swal.fire({
-    title:"Envíos gratis a partir de 6000 Pesos"
-})
-
 const carrito = document.getElementById("carrito");
 const listaProductos = document.querySelector("#lista-carrito tbody");
 const listaProductosView = document.querySelector("#lista-carritoview tbody");

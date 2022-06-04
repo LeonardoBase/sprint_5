@@ -61,6 +61,7 @@
                     <label for="confirmPassword" class="formulario__label">Repetir Contraseña</label>
                     <div class="formulario__grupo-input">
                         <input type="password" class="formulario__input" name="confirmPassword" id="password2">
+                        <p class="formulario_error1 formulario_error"><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Las contraseñas tienen que coincidir </p>
                     </div>
                 </div>
 
@@ -83,6 +84,7 @@
                 <div class="formulario__grupo">
                     <label for="imageRegister"class="form-label">Subir Imágen de perfil</label>
                     <input type="file" name="imageRegister"id='imageRegister'value="<%=locals.old && old.imageRegister ? old.imageRegister:' ' %>">
+                    <p class="formulario_error2 formulario_error"><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Debes subir una imagen </p>
                 </div>
 
                
@@ -105,6 +107,7 @@
 
        <!-- footer -->
 	    <%- include('../partials/footer') %>
+        <script src="/js/valregist.js"></script>
 	<!-- /footer -->
     </body>
 </html>

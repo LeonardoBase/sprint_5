@@ -67,13 +67,16 @@ let userController = {
               delete usertoLogin.confirmPassword;
               req.session.userLogged = usertoLogin;
               
-
+            
               if (req.body.remember_user) {
                 res.cookie("userEmail", req.body.email, {
                   maxAge: 1000 * 60 * 2000,
                 });
+              
               }
-              return res.redirect("/users/profile");
+              
+               res.redirect("/users/profile") 
+  
             }
 
             return res.render("login", {
@@ -95,6 +98,8 @@ let userController = {
             old: req.body,
           });
         });
+     
+        
     } else {
       return res.render("login", { errors: errors.errors });
     }
