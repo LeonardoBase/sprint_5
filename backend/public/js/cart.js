@@ -1,3 +1,7 @@
+Swal.fire({
+    title:"Envíos gratis a partir de 6000 Pesos"
+})
+
 const carrito = document.getElementById("carrito");
 const products = document.getElementById("lista-products");
 const listaProductos = document.querySelector("#lista-carrito tbody");
@@ -28,8 +32,6 @@ function compraProductos(e) {
     if(e.target.classList.contains('agregarcarrito')){
         const producto= e.target.parentElement.parentElement
         leerDatosProducto(producto)
-        alert('Agregaste exitosamente')
-        
      
     }
    

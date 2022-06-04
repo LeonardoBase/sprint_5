@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import productsApi from './components/productsApi.js'
-import usersApi from './components/usersApi';
+import UsersApi from './components/usersApi.js';
 
 
 function App() {
@@ -127,7 +127,7 @@ function App() {
                             <div className="col mr-2">
                               <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">Usuarios registrados
                               </div>
-                              <div className="h5 mb-0 font-weight-bold text-gray-800 total-users">XXX</div>
+                              <div className="h5 mb-0 font-weight-bold text-gray-800 total-users"><UsersApi /></div>
                             </div>
                             <div className="col-auto">
                               <i className="fas fa-user-check fa-2x text-gray-300" />
