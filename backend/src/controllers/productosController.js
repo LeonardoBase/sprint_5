@@ -185,6 +185,14 @@ const productosController = {
       }
     );
   },
+
+  productslistsApitrap: (req, res) => {
+      db.products.findAll()
+        .then((resultado)=>{
+         
+          res.json({products:resultado})
+        })
+  },
   productsbypkApi: (req, res) => {
     db.products
       .findByPk(req.params.id, {

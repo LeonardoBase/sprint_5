@@ -5,7 +5,6 @@ import { useState, useEffect, useRef } from 'react';
 function ProductsApi () {
     const [data, setData]= useState([])
     const allProducts= 'http://localhost:3000/productslists/api'
-    const aro = useRef (".aro")
 
   useEffect( () => { 
       async function fetchData() {

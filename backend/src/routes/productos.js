@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 const uploadFile= require('./../modules/validImage')
 const { body } = require('express-validator');
+const cors= require('cors')
 
 
 const productosController = require ('../controllers/productosController')
-
+router.use(cors())
 let validaciones = [
     body('name').notEmpty().withMessage('Campo vacio'),
 ]
@@ -21,7 +22,8 @@ router.post ('/', productosController.productslists);
 //Apis
 router.get ('/api', productosController.productslistsApi);
 router.get ('/:id/api', productosController.productsbypkApi);  
-router.get ('/categoriesApi', productosController.categoriesApi);        
+router.get ('/categoriesApi', productosController.categoriesApi);  
+router.get ('/api/productslists', productosController.productslistsApitrap);       
 
 router.get ('/create', productosController.createproduct);
 

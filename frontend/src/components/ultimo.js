@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 
 function Ultimo () {
       const [data, setData]= useState([])  
-      const ultimoProduct= "http://localhost:3000/productslists/api"
+      const ultimoProduct= "http://localhost:3000/productslists/api/productslists"
       const ultimoUser= "http://localhost:3000/users/api"
    
       
@@ -19,15 +19,6 @@ function Ultimo () {
          fetchData()   
          {}
       }, [])   
-      useEffect( () => {
-        //    let usuariosArray = Object.values(data.productos)
-    //   let ultimoUsuario = usuariosArray [usuariosArray.length - 1]
-    
-    let usuariosArray2 = typeof(usuariosArray)
-    console.log(data.productos)
-      },[])
-   
-
 
       return (
 
@@ -37,6 +28,7 @@ function Ultimo () {
                         <div className="card-header py-3">
                           <h6 className="m-0 font-weight-bold text-primary">Ultimo producto creado</h6>
                         </div>
+                        {/* <div>{data.productos.map(data => <div>{data.name}</div>)} </div> */}
                         <div className="card-body">
                           <div className="text-center">
                             <img className="img-fluid px-3 px-sm-4 mt-3 mb-4 imagenProducto" style={{width: '25rem'}} src="assets/images/product_dummy.svg" alt="image dummy" />

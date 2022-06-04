@@ -4,11 +4,10 @@ const {body } = require('express-validator');
 const guestMiddleware= require ('../middlewares/guestMiddleware.js')
 const authMiddleware= require ('../middlewares/authMiddleware.js')
 const uploadFileusers= require('./../modules/validImageUsers.js')
+const cors= require('cors')
 
-
-const userController = require ('../controllers/usersController.js')
-
-
+const userController = require ('../controllers/usersController.js');
+router.use(cors())
 
 let validacioneslogin = [
 
