@@ -136,6 +136,15 @@ let userController = {
         });
     });
   },
+  lastUsersApi: (req, res) => {
+db.users.findAll()
+.then((resultado)=>{
+const alabado = resultado.pop()
+  res.json({users:alabado})
+})
+  },
+
 };
+
 
 module.exports = userController;

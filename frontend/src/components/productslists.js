@@ -40,7 +40,7 @@ function Productslists () {
           <>
           <ul>
                 {products.map((producto,index)=> { 
-                    return <li>Nombre: {`${producto.name} ${producto.price}`}</li>
+                    return <li> {`Id: ${producto.id} - ${producto.name} - Precio: $ ${producto.price} (En stock: ${producto.stock}) `}</li>
                     
                 })}
           

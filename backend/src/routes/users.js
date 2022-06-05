@@ -37,8 +37,11 @@ router.post ('/login', uploadFileusers.single('imageLogin'), validacioneslogin, 
 router.post ('/register', uploadFileusers.single('imageRegister'), validacionesregistro, userController.store)
 
 //APIS//
+
 router.get ('/api', userController.usersApi)
+router.get ('/api/lastUserApi', userController.lastUsersApi)
 router.get ('/api/:id', userController.usersbypkApi)
+
 
 
 module.exports = router;

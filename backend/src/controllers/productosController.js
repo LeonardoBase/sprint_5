@@ -210,5 +210,13 @@ const productosController = {
       });
     });
   },
+  lastProductsApi: (req, res) => {
+    db.products.findAll()
+      .then((resultado)=>{
+      const lastProducts = resultado.pop ()
+        res.json({products:lastProducts})
+     
+      })
+}
 };
 module.exports = productosController;

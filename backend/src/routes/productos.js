@@ -23,7 +23,8 @@ router.post ('/', productosController.productslists);
 router.get ('/api', productosController.productslistsApi);
 router.get ('/:id/api', productosController.productsbypkApi);  
 router.get ('/categoriesApi', productosController.categoriesApi);  
-router.get ('/api/productslists', productosController.productslistsApitrap);       
+router.get ('/api/productslists', productosController.productslistsApitrap);
+router.get ('/api/lastProductsApi', productosController.lastProductsApi);       
 
 router.get ('/create', productosController.createproduct);
 
