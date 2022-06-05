@@ -6,12 +6,12 @@ const multer = require('multer');
 
 const configuracionImagen = multer.diskStorage({
     destination: function(req, file, cb) { // request, archivo y callback que almacena archivo en destino
-        cb(null, path.join(__dirname, '../../public/images/users')); // Ruta donde almacenamos el archivo
+        if (req.body.event == 'test') {
+            cb(null, path.join(__dirname, '../../public/images/users'));
+        } else {
+        cb(null, path.join(__dirname, '../../../frontend/public/users')); // Ruta donde almacenamos el archivo
+          }
     },
-    filename: function(req, file, cb) { // request, archivo y callback que almacena archivo en destino
-        let imageName = "745754754" + file.originalname; // milisegundos y extensión de archivo original
-        cb(null, imageName);
-    }
 });
 
 const fileFilter = (req, file, cb) => {
@@ -26,7 +26,7 @@ const fileFilter = (req, file, cb) => {
 
 
 const limits = {
-    fileSize: 1024 * 1024 * 1, // tamaño en bytes, 2 mb 
+    fileSize: 1024 * 1024 * 2, // tamaño en bytes, 4 mb 
     fieldNameSize: 200
 }
 

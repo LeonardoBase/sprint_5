@@ -20,7 +20,7 @@ let validacionesregistro= [
     body('user').notEmpty().withMessage('Campo vacio'),
     body('email').isEmail().withMessage('Email invalido'),
     body ('password').isLength ({min: 4, max:16}).withMessage('La contraseña debe tener mínimo 8 caracteres')
-    // check('confirmPassword').matches('password').withMessage('La contraseña debe coincidir')
+    
 ]
 
 
