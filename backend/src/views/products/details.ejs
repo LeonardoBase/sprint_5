@@ -21,8 +21,8 @@
                         
                         <div class="texto-body">
                             <h4 style="color:#08584a"><%- producto.name %></h4>
-                            <h2 class= "price" style="color:#0a0a0a; width: auto; font-size: 40px;">
-                                <%-producto.price%></h2><br>
+                            <h2 class= "price" style="color:#0a0a0a; width: auto; font-size: 20px;">
+                                <%-producto.price%></h2>
                             <h4 class="description"><%- producto.description%></h4>
                             <% for( let i = 0; i < producto.categories.length; i++ ) { %>
                             <div>
@@ -32,7 +32,7 @@
                                 Disponibles: <%= producto.stock %> 
                                  
                              </div>
-                            <br><br>
+                            <br>
 
                             <% } %> 
                             <% if (locals.isLogged) { %>
@@ -41,52 +41,52 @@
                             
                             <form action="/productslists/<%=producto.id%>?_method=DELETE" method="POST" style="display: inline-flex">
                                 <button type="submit" class="action-button delete">ELIMINAR</button>
-                            </form><br><br><br><br>
+                            </form><br><br><br>
                             <% } %>
                         <div></div>
                         <button class="agregarFav" data-id="<%= producto.id %>" style="
                             color: rgb(255, 255, 255);
                             background-color: rgb(0, 116, 116);
-                            font-size: medium;
+                            font-size: small;
                           ">
                         A tus favoritos
                       </button>
-                      <i class="fa fa-heart" aria-hidden="true" height="10%" width="auto" style="color: #0aa689"></i>
       
                       <button formaction="#" class="agregarcarrito" data-id="<%= producto.id %>" style="
                             color: rgb(255, 255, 255);
                             background-color: rgb(0, 116, 116);
-                            font-size: medium;
+                            font-size: small;
                           ">
                         Al carrito
                       </button>
-                      <i class="fa fa-shopping-cart" aria-hidden="true" height="10%" width="auto" style="color: #0aa689"></i>
+         
                     </div>
                 </div>
             </section>
         </div>    
-            <section class="suggestions-detalle">
+            <!-- <section class="suggestions-detalle">
                 <div class="containerSuggestions"></div>
                     <h5 style="margin-left: 12.5%;margin-top: 4%; color: #08584a;">También te podría interesar:</h5>
                     
+                    
                     <div class="products">
                         <button class="arrows"><i class='fas fa-arrow-left'></i></button>
-                        <% for( let i = 0; i < producto.length; i++ ) { %>
+                      
                             <article>   
-                                <img src="/images/<% producto[i].image%> " alt="dije">
+                                <img src="../images/products <% producto.image%> " alt="dije">
                                 <div class="main-article">
                                     <i class="far fa-heart"></i>
-                                    <p class= "price"><%  producto[i].price%> </p>
-                                    <p class= "name"><%  producto[i].name%> </p>                                  
+                                    <p class= "price"><%  producto.price%> </p>
+                                    <p class= "name"><%  producto.name%> </p>                                  
                                 </div>
                             </article>
     
-                        <% } %>
+                      
 
                         <button class="arrows"><i class='fas fa-arrow-right' style="color:black"></i></button>
                     </div>
                 </div>
-            </section>
+            </section> -->
            <!-- site-shopping-info -->
            <%- include('../partials/site-shopping-info.ejs') %>
          <!-- site-shopping-info -->

@@ -25,6 +25,8 @@
         <%for (let p of productos) { %>
             
         <section>
+          <article>
+      
           <div class="product textProd">
             <div class="col">
               <a href="/productslists/details/<%=p.id %>">
@@ -32,9 +34,9 @@
               </a>
           
                 <h4 class="textProd"><%=p.name%></h4>
-                <h2>$<%=p.price %></h2>
+                <h2 style="width: auto; font-size: 20px;">$<%=p.price %></h2>
                 <% for( let i = 0; i < p.categories.length; i++ ) { %>
-                <li type="none">Categoría: <%= p.categories[i].name %></li>
+                <!-- <li type="none">Categoría: <%= p.categories[i].name %></li> -->
 
                 <% } %> <% for( let i= 0; i < p.materials.length; i++ ) { %>
 
@@ -61,7 +63,7 @@
               
             </div>
           </div>
-        
+        </article>
         </section>
     
 

@@ -371,7 +371,7 @@ section.img-detalle {
 }
 .containerDetailMacro {
     display: flex;
-    max-width: 100%;
+    /* max-width: 100%; */
     padding-left: 10%;
 }
 .containerDetail {
@@ -383,7 +383,7 @@ section.img-detalle {
     width: 50%;
     margin-top: 0.05%;
     margin-bottom: 0.01%;
-    font-size: 25px;
+    font-size: 15px;
     margin-left: 20px;
 }
 .img-detalle .talla-select {     
@@ -954,14 +954,7 @@ html, body {
     color: black !important;
     background-color: #fff;
 }
-.imagenDetail:hover {
-     transform: scale(1.1);
-}
-
-.imagenDetail{
-    cursor: zoom-in;
-}
-
+/* productslis */
 .textProd{
     font-size: medium;
 }
