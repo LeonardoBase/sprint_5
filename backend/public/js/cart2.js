@@ -28,9 +28,9 @@ function cargarEventListeners() {
 function compraProductos(e) {
     
     if(e.target.classList.contains('agregarcarrito')){
-        const producto= e.target.parentElement.parentElement
+        const producto= e.target.parentElement.parentElement.parentElement
         leerDatosProducto(producto)
-    
+        
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -58,7 +58,6 @@ function leerDatosProducto(producto) {
         titulo: producto.querySelector('h4').textContent,
         precio: producto.querySelector('h2').textContent,
         id: producto.querySelector('button').getAttribute('data-id'),
-        id2: producto.querySelector('button').getAttribute('data-id2'),
         cantidad:1
     }
   
@@ -83,7 +82,7 @@ function insertarCarrito (producto) {
       <td>${producto.titulo}</td>
       <td>${producto.precio}$</td>
       <td>
-        <a href="#" class="borrar-producto" data-id="${producto.id} ">X</a>
+        <a href="#" class="borrar-producto" data-id="${producto.id}">X</a>
        </td>
     `;
     if (carritoCount.length>0) {
