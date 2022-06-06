@@ -6,11 +6,9 @@ const multer = require('multer');
 
 const configuracionImagen = multer.diskStorage({
     destination: function(req, file, cb) { // request, archivo y callback que almacena archivo en destino
-        if (req.body.event == 'test') {
+   
             cb(null, path.join(__dirname, '../../public/images/users'));
-        } else {
-        cb(null, path.join(__dirname, '../../../frontend/public/users')); // Ruta donde almacenamos el archivo
-          }
+    
     },
 });
 

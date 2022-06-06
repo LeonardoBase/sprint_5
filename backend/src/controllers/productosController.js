@@ -122,6 +122,7 @@ const productosController = {
     );
   },
   store: async (req, res) => {
+    
     let producte = await db.products.create({
       name: req.body.name,
       price: req.body.price,

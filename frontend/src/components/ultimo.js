@@ -64,34 +64,37 @@ function LastProducts () {
             <div className="col-lg-6 mb-4">
                       <div className="card shadow mb-4">
                         <div className="card-header py-3">
-                          <h6 className="m-0 font-weight-bold text-primary">Ultimo producto creado </h6>
+                          <h6 className="m-0 font-weight-bold text-primary">Ultimo producto creado</h6>
                         </div>
+                     <div className='last'>
                         <div> {products.name}</div> 
                         <div> {products.price}</div> 
-                        
+                     </div>      
                         <div className="card-body">
-                          <div className="text-center" id="imgfront1">
-                            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4 imagenProducto" style= {{filter:"invert(1)"}} src={`./products/${products.image}`} alt="image dummy" />
+                          <div className="text-center imgfront2">
+                            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4 imagenProducto" style= {{filter:"invert(1)"}} src={`http://localhost:3000/images/products/${products.image}`} alt="image dummy" />
                           </div>
-                          <p></p>
-                          <a target="_blank" rel="nofollow" href="/">Ver detalles de producto</a>
+                         
                         </div>
+                          <a target="_blank" rel="nofollow" href={`http://localhost:3000/productslists/details/${products.id}`}>Ver detalles de producto</a>
+                        
                       </div>
-                    </div>
+            </div>
 
                     <div className="col-lg-6 mb-4">
                       <div className="card shadow mb-4">
                         <div className="card-header py-3">
                           <h6 className="m-0 font-weight-bold text-warning">Ultimo usuario creado</h6>
                         </div>
+                      <div className='last'>  
                         <div> {users.name}</div> 
                         <div> {users.email}</div> 
                         <div className="card-body">
+                      </div>   
                           <div className="text-center">
-                            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4 imagenUsuario" id="imgfront" style={{filter:"invert(1)"}} src={`./users/${users.image}`} alt="image dummy" />
+                            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4 imgfront1" style={{filter:"invert(1)"}} src={`http://localhost:3000/images/users/${users.image}`} alt="image dummy" />
                           </div>
-                          <p>descripcion</p>
-                          <a target="_blank" rel="nofollow" href="/">Ver detalles de usuario</a>
+                      
                         </div>
                       </div>
                     </div>
