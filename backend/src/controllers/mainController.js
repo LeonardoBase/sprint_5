@@ -31,7 +31,8 @@ const controller = {
                 
            ],
             where: {
-                name: {[Op.like]: '%' + req.query.search_query + '%' }
+                name: {[Op.like]: '%' + req.query.search_query + '%' },
+               
             }
         })
         .then ((resultado) => {
@@ -41,7 +42,29 @@ const controller = {
            
          })
         
+    },
+    searchByCategory: async (req,res) => {
+        db.products.findAll({
+            include: [
+                {association:'categories' },
+                {association:'materials' }     
+                
+           ],
+            where: {
+                detail: {[Op.like]: '%' + req.query.search_query + '%' },
+               
+            }
+        })
+        .then ((resultado) => {
+            
+                res.render ('productslists',{productos:resultado})
+            
+           
+         })
+         
+
     }
+   
 }
 
     module.exports= controller;

@@ -7,6 +7,6 @@ router.get ('/', mainController.index);
 
 router.get ('/search', mainController.search)
 
-
+router.get ('/category', mainController.searchByCategory)
 
 module.exports = router;

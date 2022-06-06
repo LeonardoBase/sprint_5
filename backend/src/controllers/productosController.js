@@ -112,7 +112,8 @@ const productosController = {
     let materialsRequest = db.materials.findAll();
     let categoriesRequest = db.categories.findAll();
 
-    Promise.all([materialsRequest, categoriesRequest]).then(
+    Promise.all([materialsRequest, categoriesRequest])
+    .then(
       ([materiales, categoria]) => {
         res.render("createproduct", {
           materials: materiales,

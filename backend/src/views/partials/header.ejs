@@ -56,41 +56,48 @@
         
     </section>
 
-
-
     
     <section class="bottom-header">
 
         
+     <div class="header-bottons">
         <div class="grid-container">
-
+         
             <div class="item grid-item-1"> 
-                <a href="/" style="color: white; text-decoration: none;">
-                    ARO
-                </a>
+                <form method="GET" action="/category" name="search">     
+                
+                    <input  style="color: white; text-decoration: none;" type="submit" name="search_query" value="ARO">
+                
+                 </form> 
             </div>
-
+            
             <div class="item grid-item-2">|</div>
 
             <div class="item grid-item-3"> 
-                <a href="/" style="color: white; text-decoration: none;">
-                    CADENITAS
-                </a>
+                <form method="GET" action="/category" name="search">     
+                
+                    <input  style="color: white; text-decoration: none;" type="submit" name="search_query" value="CADENITAS">
+                
+                 </form> 
             </div>
 
             <div class="item grid-item-4"> |</div>
 
             <div class="item grid-item-5"> 
-                <a href="/" style="color: white; text-decoration: none;">
-                    DIJE
-                </a>
+                <form method="GET" action="/category" name="search">     
+                
+                    <input  style="color: white; text-decoration: none;" type="submit" name="search_query" value="DIJE">
+                
+                 </form> 
             </div>
             <div class="item grid-item-6">|</div>
           
             <div class="item grid-item-7"> 
-                <a href="/" style="color: white; text-decoration: none;">
-                    PULSERA
-                </a>
+                <form method="GET" action="/category" name="search">     
+                
+                    <input  style="color: white; text-decoration: none;" type="submit" name="search_query" value="PULSERA">
+                
+                 </form> 
 
                 
             </div>
@@ -98,20 +105,26 @@
             <div class="item grid-item-8"> | </div>
 
             <div class="item grid-item-9"> 
-                <a href="/" style="color: white; text-decoration: none;">
-                    ANILLO
-                </a>
-
+                <form method="GET" action="/category" name="search">     
                 
+                    <input  style="color: white; text-decoration: none;" type="submit" name="search_query" value="ANILLO">
+                
+                </form> 
             </div>
+         
             <div class="item grid-item-10"> | </div>
 
             <div class="item grid-item-11">
-                <a href="/productslists"style="color: white; text-decoration: none;">
-                    TODOS LOS PRODUCTOS
-                </a>
+  
+                <form method="GET" action="/productslists" name="search">     
+                
+                    <input  style="color: white; text-decoration: none;" type="submit" value="TODOS LOS PRODUCTOS">
+                
+                 </form> 
+            
     
             </div>
+        </div>      
         </div> 
 
     </section>
@@ -119,8 +132,16 @@
     
     <nav style="background-color: black; text-align: center;">
         <% if (locals.isLogged) { %>
-            <a style="color: rgb(245, 243, 243);" href="/productslists/create"><i class="fas fa-plus"></i>
-                <p>Crear un producto</p></a>
+            
+            <i class="fas fa-plus" style="color: white"></i>
+            <form class="header-bottons" method="GET" action="/productslists/create">     
+                
+                    <input  style="color: white; text-decoration: none;" type="submit" value="Crear un producto">
+                
+                
+            
+             </form> 
+         
             
          <% } %>
 
