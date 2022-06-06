@@ -9,31 +9,30 @@
                     <%- include('../partials/header.ejs') %>
                     <!-- header -->
     
-        <main style="background-image:url('images/Plantillas Feed-02_v2.jpg')">
-            <section class="img-detalle">
-                <div class="containerDetailMacro">
-                    <img src="/images/products/<%-producto.image%>" alt="imagen de producto" width="100%" height="100%">
-
+        <main style="margin-top: 40px;">
+         <div id="lista-products">  
+            <section>
+                <div   class="containerDetailMacro">
+                    <img class="imagenDetail" src="/images/products/<%=producto.image%>" alt="imagen de producto" >
                     <div class="containerDetail">
-                        <i class="fas fa-gem" height="4.5%" width="auto" style="color:#0AA689"></i>
+
+                        
+                        <i class="fas fa-gem" height="4.5%" width="auto" style="color:#080808"></i>
                         
                         <div class="texto-body">
-                            <h3><p><strong><%- producto.name %></strong></p></h3>
-                            <p class= "price" style="color:rgb(0, 116, 116);font-size:18px;">
-                                Standard: <%-producto.price%>$  Larga: <%- producto.price+ (producto.price*0.15) %>$</p>
+                            <h4 style="color:#08584a"><%- producto.name %></h4>
+                            <h2 class= "price" style="color:#0a0a0a; width: auto; font-size: 40px;">
+                                <%-producto.price%></h2><br>
                             <h4 class="description"><%- producto.description%></h4>
                             <% for( let i = 0; i < producto.categories.length; i++ ) { %>
-                              
-                                    
-                               
-                             <div>
-                               Cantidad: <%= producto.stock %> 
-                                
-                            </div>
                             <div>
                                  <%= producto.detail %> 
-                            </div>
-
+                            </div> <br>
+                            <div>
+                                Disponibles: <%= producto.stock %> 
+                                 
+                             </div>
+                            <br><br>
 
                             <% } %> 
                             <% if (locals.isLogged) { %>
@@ -42,32 +41,33 @@
                             
                             <form action="/productslists/<%=producto.id%>?_method=DELETE" method="POST" style="display: inline-flex">
                                 <button type="submit" class="action-button delete">ELIMINAR</button>
-                            </form>
+                            </form><br><br><br><br>
                             <% } %>
                         <div></div>
-                        <div class="WishlistAddCart">
-                            <div class="fixed">
-                                <a href="#">
-                                    <i class="fa fa-heart" aria-hidden="true" height="10%" width="auto" style="color:#0AA689"></i>
-                                </a>
-                                <p><a style="color: rgb(0, 116, 116);" >A tus Favoritos</a></p>
-                            </div>
-
-                            <div class="fixed">
-                               
-                                <a href="/productslists/cart">
-                                    <i class="fa fa-shopping-cart" aria-hidden="true" height="10%" width="auto" style="color:#0AA689"></i>
-                                </a>
-                                <p><a style="color: rgb(0, 116, 116);">Al Carrito</a></p>
-                            </div>
-                        </div>
+                        <button class="agregarFav" data-id="<%= producto.id %>" style="
+                            color: rgb(255, 255, 255);
+                            background-color: rgb(0, 116, 116);
+                            font-size: medium;
+                          ">
+                        A tus favoritos
+                      </button>
+                      <i class="fa fa-heart" aria-hidden="true" height="10%" width="auto" style="color: #0aa689"></i>
+      
+                      <button formaction="#" class="agregarcarrito" data-id="<%= producto.id %>" style="
+                            color: rgb(255, 255, 255);
+                            background-color: rgb(0, 116, 116);
+                            font-size: medium;
+                          ">
+                        Al carrito
+                      </button>
+                      <i class="fa fa-shopping-cart" aria-hidden="true" height="10%" width="auto" style="color: #0aa689"></i>
                     </div>
                 </div>
             </section>
-
+        </div>    
             <section class="suggestions-detalle">
                 <div class="containerSuggestions"></div>
-                    <h5 style="margin-left: 12.5%;margin-top: 4%;">También te podría interesar:</h5>
+                    <h5 style="margin-left: 12.5%;margin-top: 4%; color: #08584a;">También te podría interesar:</h5>
                     
                     <div class="products">
                         <button class="arrows"><i class='fas fa-arrow-left'></i></button>
@@ -77,14 +77,11 @@
                                 <div class="main-article">
                                     <i class="far fa-heart"></i>
                                     <p class= "price"><%  producto[i].price%> </p>
-                                    <p class= "name"><%  producto[i].name%> </p>
-                                    
+                                    <p class= "name"><%  producto[i].name%> </p>                                  
                                 </div>
                             </article>
     
                         <% } %>
-                        
-                    
 
                         <button class="arrows"><i class='fas fa-arrow-right' style="color:black"></i></button>
                     </div>
@@ -96,6 +93,6 @@
         </main>
 
         <%- include('../partials/footer.ejs') %>
-        <script src="/js/cart.js"></script>
+        <script src="/js/cart2.js"></script>
     </body>
 </html>

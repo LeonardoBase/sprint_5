@@ -30,6 +30,7 @@ function eliminarProducto(e) {
         e.target.parentElement.parentElement.remove()
             producto= e.target.parentElement.parentElement
             productoId= producto.querySelector('a').getAttribute('data-id')
+            
     }
     eliminarProductoLocalStorage(productoId)
 }
@@ -76,9 +77,7 @@ function leerLocalStorage() {
       </td>
       <td>${producto.titulo}</td>
       <td class="preciox">${producto.precio}$</td>
-      <td>
-        <a href="#" class="borrar-producto" data-id="${producto.id}">X</a>
-       </td> 
+      
         `;
 
         listaProductos.appendChild(row);

@@ -17,7 +17,12 @@ const productosController = {
       });
   },
   cart: (req, res) => {
-    res.render("cart");
+    db.products
+      .findAll()
+      .then((products) => {
+        res.render("cart", { productos: products });
+      });
+    
   },
 
   details: (req, res) => {

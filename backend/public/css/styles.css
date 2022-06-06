@@ -954,7 +954,14 @@ html, body {
     color: black !important;
     background-color: #fff;
 }
-/* productslis */
+.imagenDetail:hover {
+     transform: scale(1.1);
+}
+
+.imagenDetail{
+    cursor: zoom-in;
+}
+
 .textProd{
     font-size: medium;
 }
