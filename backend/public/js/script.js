@@ -85,6 +85,7 @@ window.addEventListener("load", function () {
      
       formulario.submit();
       Swal.fire(
+        'Perfecto',
         'Producto creado con exito!',
         'success'
       )
