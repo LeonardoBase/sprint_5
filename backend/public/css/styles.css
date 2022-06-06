@@ -252,6 +252,7 @@ form.search-box {
     grid-column-end: 12;
     grid-row-start: 1;
     grid-row-end: 2;
+    
 }
 
 /** From now on, the main: */
