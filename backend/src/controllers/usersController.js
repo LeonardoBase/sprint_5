@@ -143,6 +143,27 @@ const alabado = resultado.pop()
   res.json({users:alabado})
 })
   },
+  eraseUser: (req, res) =>{
+ 
+     db.users.destroy({
+      where: {
+      id: req.params.id
+        }
+     })    
+  },
+  editUser:(req, res)=> {
+db.users.update({
+  
+  nombre: req.body.nombre,
+  password: req.body.password,
+  email: req.body.email,
+  address: req.body.address,
+  image: req.file.filename,
+  },
+  { where: { id: req.params.id } 
+
+})
+  }
 
 };
 

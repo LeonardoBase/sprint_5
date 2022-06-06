@@ -36,6 +36,9 @@ router.post ('/login', uploadFileusers.single('imageLogin'), validacioneslogin, 
 
 router.post ('/register', uploadFileusers.single('imageRegister'), validacionesregistro, userController.store)
 
+router.put ('/updateUser', userController.editUser)
+
+router.delete ('/deleteUser', userController.eraseUser)
 //APIS//
 
 router.get ('/api', userController.usersApi)
