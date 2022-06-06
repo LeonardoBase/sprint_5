@@ -954,6 +954,14 @@ html, body {
     color: black !important;
     background-color: #fff;
 }
-.imagenDetail {
-    
+.imagenDetail:hover {
+     transform: scale(1.1);
+}
+
+.imagenDetail{
+    cursor: zoom-in;
+}
+
+.textProd{
+    font-size: medium;
 }
