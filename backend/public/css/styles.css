@@ -954,3 +954,7 @@ html, body {
     color: black !important;
     background-color: #fff;
 }
+/* productslis */
+.textProd{
+    font-size: medium;
+}
