@@ -122,7 +122,7 @@ function eliminarProducto(e) {
                 if ( productoLS[i].id === productoId) { 
                     productoLS.splice(i, 1); 
                     contadorCarrito.innerHTML=  cart.length
-                    priceTotal.innerText = '$'+ contadorRapido()
+                    priceTotal.innerText =  contadorRapido()
                 }
                 console.log(productoLS)
             }
@@ -200,7 +200,7 @@ function leerLocalStorage() {
             <img src="${producto.imagen}" width=100>
       </td>
       <td>${producto.titulo}</td>
-      <td>${producto.precio}$</td>
+      <td>${producto.precio}</td>
       <td>
         <a href="#" class="borrar-producto" data-id="${producto.id}">X</a>
        </td> 
