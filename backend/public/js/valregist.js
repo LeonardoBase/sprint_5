@@ -30,7 +30,7 @@ formulario.addEventListener('submit',function(e){
         formulario.submit()
         Swal.fire(
             'Perfecto!!',
-            'Producto editado con exito!',
+            'Cuenta creada!',
             'success'
           )
     }
