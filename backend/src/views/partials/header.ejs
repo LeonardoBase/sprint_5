@@ -11,9 +11,10 @@
                 <li><a href="/users/profile"><img src="/images/users/<%=locals.userLogged.image  %> " alt="imagen de usuario"   style="  max-width: 100% ;border-radius: 50%;
                     max-height: 100%;"></a></li><br>
                  <% } %>
+                 <% if (!locals.isLogged) { %>
                 <li><a style="color: rgb(245, 243, 243);" href="/users/login"><i class="fas fa-user-circle"></i></a></li><br>
                 
-                <li><a style="color: rgb(247, 245, 245);" href="#"><i class="far fa-heart"></i></a></li>   <br>             
+                <% } %>      
                 <li><a style="color: rgb(252, 249, 249);" href="/help"><i class="far fa-question-circle"></i></a></li><br>
                    
                     <li class="submenu"><span id="contadorCarrito">0</span>
